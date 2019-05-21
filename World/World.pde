@@ -34,31 +34,3 @@ if (key == 'a'){
 }
   }
 }
-/*class PinkGhost extends ghost {
-
-  public PinkGhost() {
-    c = color(255, 102, 102);
-    ghostY = 310;
-    ghostX = 350;
-
-  }
-
-  //go back to middle
-  public void revive(){
-    c = color(255, 102, 102);
-  }
-
-
-}
-*/
-class ghost {
-  void display(){
-    fill(255,0,0);
-  rect(xg, yg, 75, 100);
-  };
-  void move(){
-    
-    xg+=random(-10, 10);
-    yg+=random(-10,10);
-  }
-}

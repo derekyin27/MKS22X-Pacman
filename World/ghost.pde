@@ -1,5 +1,4 @@
-int xg;
-int yg;
+
 class ghost {
   void display(){
     fill(255,0,0);
