@@ -7,4 +7,4 @@ Albert: Made PinkGhost, we will soon add Ghost.pde.
 5/21/19
 Derek:
 
-Albert: Today, I made ghost a separate file and wrote drew the actual ghost on the code.
+Albert: Today, I made ghost a separate file and wrote and drew the actual ghost on the code.
