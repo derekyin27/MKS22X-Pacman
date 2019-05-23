@@ -22,7 +22,7 @@ void draw(){
   Pac.display();
   Pac.move();
   ghost Speedy = new ghost();
-  Speedy.display();
+  Speedy.ghostSetup();
   Speedy.move();
 }
 class pacman {
