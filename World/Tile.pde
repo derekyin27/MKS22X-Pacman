@@ -1,6 +1,6 @@
 
 class Tile extends World{
-  public Tile(int x, int y){
+  public Tile(){
     right = false;
     left = false;
     up = false;
