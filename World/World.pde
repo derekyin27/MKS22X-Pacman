@@ -13,13 +13,13 @@ void setup() {
 }
 void draw(){
   background(0,0,0);
-  ArrayList<Tile> storage = new ArrayList<Tile>();
+  Tile[][] storage = new Tile[21][21];
   for (int r = 0; r <= 1000; r+=50){
     for (int c =0; c <= 1000; c+=50){
       Tile temp = new Tile(r, c);
     fill(0, 0, 255);
     rect(r, c, 50, 50);
-      storage.add(temp);
+    storage[r/50][c/50] = temp;
     }
   }
   pacman Pac = new pacman();
