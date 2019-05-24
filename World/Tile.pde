@@ -5,7 +5,7 @@ class Tile extends World{
     left = false;
     up = false;
     down = false;
-    isWall = true;
+    ifWall = true;
     tileX = x;
     tileY = y;
   }
@@ -27,5 +27,9 @@ class Tile extends World{
   int getY(){
     return tileY;
   }
+  boolean wall(){
+    return ifWall;
+  }
+  
 
 }

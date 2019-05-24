@@ -3,7 +3,8 @@ int x;
 int y;
 int xg;
 int yg;
-boolean right, left, up, down, isWall;
+boolean right, left, up, down, ifWall;
+Tile[][] storage = new Tile[21][21];
 int tileX, tileY;
 void placeTile(int x, int y){
     
@@ -13,7 +14,6 @@ void setup() {
 }
 void draw(){
   background(0,0,0);
-  Tile[][] storage = new Tile[21][21];
   for (int r = 0; r <= 1000; r+=50){
     for (int c =0; c <= 1000; c+=50){
       Tile temp = new Tile(r, c);
@@ -29,6 +29,12 @@ void draw(){
   Speedy.ghostSetup();
   Speedy.move();
 }
+boolean isWall(int row, int col){
+    if (storage[row/50][col/50].wall()){
+    return true;
+    }
+    else return false;
+  }
 class pacman {
   void display(){
   fill(255, 255, 0);
@@ -36,17 +42,28 @@ class pacman {
   }
   void move(){
     if (key == 'd'){
-      //if (x+4 
-    x+=4;
+      if (isWall(x+4, y)){
+        return;
+      }
+    else x+=4;
   }
   if (key == 'w'){
-    y-=4;
+    if (isWall(x, y-4)){
+      return;
+    }
+    else y-=4;
   }
   if (key == 's'){
-    y+=4;
+    if (isWall(x, y+4)){
+      return;
+    }
+    else y+=4;
 }
 if (key == 'a'){
-  x-=4;
+  if (isWall(x-4, y)){
+    return;
+  }
+  else x-=4;
 }
   }
     
