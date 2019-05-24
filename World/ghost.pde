@@ -2,8 +2,42 @@
 class ghost {
   color c;
   void move(){
-    xg+=random(-10, 10);
-    yg+=random(-10,10);
+//    if (xg == x){
+//     if (xg < x){
+ //      xg += 4;
+//     }
+ //    else{
+//       xg -= 4;
+//}
+//    }
+//    else if(yg == y){
+ //    if (yg < y){
+// //    }
+//     else{
+//       xg -= 4;
+//     }
+//    }
+//    else{
+     int rand = (int) random(0, 20);
+     if (rand == 1){
+       //MAKE LASTMOVE!!!!
+       xg += lastmove[0];
+       yg += lastmove[1];
+     }
+       
+      int ran = (int) random(0, 3);
+      
+      if (ran == 0){
+        yg += 3;
+      }
+      if (ran == 1){
+        xg -= 3;
+      }
+      if (ran == 2){
+        yg -= 3;
+      }
+      else{xg += 3;}
+//    }
   }
   void ghostSetup(){
    fill(c);
