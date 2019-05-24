@@ -30,6 +30,13 @@ class Tile extends World{
   boolean wall(){
     return ifWall;
   }
-  
-
+  void makeIntoPath(){
+    right = true;
+    left = true;
+    up = true;
+    down = true;
+    ifWall = false;
+    tileX = x;
+    tileY = y;
+}
 }
