@@ -1,11 +1,13 @@
 
 class Tile extends World{
-  public Tile(){
+  public Tile(int x, int y){
     right = false;
     left = false;
     up = false;
     down = false;
     isWall = true;
+    tileX = x;
+    tileY = y;
   }
   boolean getRight(){
     return right;
@@ -18,6 +20,12 @@ class Tile extends World{
   }
   boolean getDown(){
     return down;
+  }
+  int getX(){
+    return tileX;
+  }
+  int getY(){
+    return tileY;
   }
 
 }
