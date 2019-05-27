@@ -4,11 +4,11 @@ int y;
 int xg;
 int yg;
 boolean right, left, up, down, ifWall;
-int ghostLast;
+int[] ghostLast;
 Tile[][] storage = new Tile[21][21];
 int tileX, tileY;
 void placeTile(int x, int y){
-    
+
 }
 void setup() {
   size(1000, 1000);
@@ -83,5 +83,5 @@ if (key == 'a'){
   else x-=4;
 }
   }
-    
+
 }

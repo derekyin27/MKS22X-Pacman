@@ -24,9 +24,9 @@ class ghost {
        xg += lastmove[0];
        yg += lastmove[1];
      }
-       
+
       int ran = (int) random(0, 3);
-      
+
       if (ran == 0){
         yg += 3;
       }
@@ -37,11 +37,16 @@ class ghost {
         yg -= 3;
       }
       else{xg += 3;}
+      lastmove[0] = xg;
+      lastmove[1] = yg;
 //    }
   }
   void ghostSetup(){
    fill(c);
-
+   //find good coords later
+   int[] lastmove = new int[2];
+   lastmove[0] = 5;
+   lastmove[1] = 5;
     arc(xg, yg, 25, 25, PI, 2 * PI);
     ellipse(xg + 3.5, 3 + yg, 7, 7);
     ellipse(xg - 10, 3 + yg, 7, 7);
