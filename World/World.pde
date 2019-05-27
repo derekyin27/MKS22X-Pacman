@@ -18,10 +18,10 @@ void draw(){
   background(0,0,0);
   for (int r = 0; r <= 1000; r+=50){
     for (int c =0; c <= 1000; c+=50){
-      if (r == 0){
+      if (r == 500){
         placePath(r, c);
       }
-      if ( c == 10){
+      if ( c == 500 || c == 450){
         placePath(r, c);
       }
       else placeWall(r, c);
@@ -30,19 +30,19 @@ void draw(){
   pacman Pac = new pacman();
   Pac.display();
   Pac.move();
-  ghost Speedy = new ghost();
-  Speedy.ghostSetup();
-  Speedy.move();
+  //ghost Speedy = new ghost();
+  //Speedy.ghostSetup();
+  //Speedy.move();
 }
 void placeWall(int r, int c){
-  Tile temp = new Tile(r, c);
+  Tile temp = new Tile(r, c, true);
     fill(0, 0, 255);
     rect(r, c, 50, 50);
     storage[r/50][c/50] = temp;
 }
 void placePath(int r, int c){
-  Tile temp = new Tile(r, c);
-  temp.makeIntoPath();
+  Tile temp = new Tile(r, c, false);
+  //temp.makeIntoPath();
     fill(0, 0, 0);
     rect(r, c, 50, 50);
     storage[r/50][c/50] = temp;
@@ -56,11 +56,11 @@ boolean isWall(int row, int col){
 class pacman {
   void display(){
   fill(255, 255, 0);
-  ellipse(x+500, y+500, 30, 30);
+  ellipse(x+450, y+450, 30, 30);
   }
   void move(){
     if (key == 'd'){
-      if (isWall(x+4, y)){
+      if (isWall(x+50, y)){
         return;
       }
     else x+=4;
