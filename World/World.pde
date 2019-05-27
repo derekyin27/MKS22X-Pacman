@@ -30,9 +30,9 @@ void draw(){
   pacman Pac = new pacman();
   Pac.display();
   Pac.move();
-  //ghost Speedy = new ghost();
-  //Speedy.ghostSetup();
-  //Speedy.move();
+  ghost Speedy = new ghost();
+  Speedy.ghostSetup();
+  Speedy.move();
 }
 void placeWall(int r, int c){
   Tile temp = new Tile(r, c, true);
@@ -42,7 +42,7 @@ void placeWall(int r, int c){
 }
 void placePath(int r, int c){
   Tile temp = new Tile(r, c, false);
-  //temp.makeIntoPath();
+  temp.makeIntoPath();
     fill(0, 0, 0);
     rect(r, c, 50, 50);
     storage[r/50][c/50] = temp;

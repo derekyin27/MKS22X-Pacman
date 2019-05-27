@@ -1,5 +1,5 @@
 
-/*class ghost {
+class ghost {
   color c;
   void move(){
   if (gcounter % 50 != 0){
@@ -71,4 +71,3 @@
     ellipse(xg - 6, yg - 6, 2, 2);
   }
 }
-*/
