@@ -3,6 +3,7 @@ int x;
 int y;
 int xg;
 int yg;
+int gcounter;
 boolean right, left, up, down, ifWall;
 int[] ghostLast;
 Tile[][] storage = new Tile[21][21];

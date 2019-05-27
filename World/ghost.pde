@@ -2,22 +2,30 @@
 class ghost {
   color c;
   void move(){
-//    if (xg == x){
-//     if (xg < x){
- //      xg += 4;
-//     }
- //    else{
-//       xg -= 4;
-//}
-//    }
-//    else if(yg == y){
- //    if (yg < y){
-// //    }
-//     else{
-//       xg -= 4;
-//     }
-//    }
-//    else{
+  if (gcounter % 50 != 0){
+    xg = 0;
+    yg = 0;
+    if (xg == x){
+     if (xg < x){
+      xg += 4;
+     }
+     else{
+       xg -= 4;
+     }
+    }
+    else if(yg == y){
+     if (yg < y){
+      yg += 4;
+     }
+     else{
+       yg -= 4;
+       }
+    }else{
+      xg += lastmove[0];
+      yg += lastmove[1];
+    }
+    }
+    else{
      int rand = (int) random(0, 20);
      if (rand == 1){
        //MAKE LASTMOVE!!!!
@@ -39,14 +47,14 @@ class ghost {
       else{xg += 3;}
       lastmove[0] = xg;
       lastmove[1] = yg;
-//    }
+    }
   }
   void ghostSetup(){
    fill(c);
    //find good coords later
    int[] lastmove = new int[2];
-   lastmove[0] = 5;
-   lastmove[1] = 5;
+   lastmove[0] = 0;
+   lastmove[1] = 4;
     arc(xg, yg, 25, 25, PI, 2 * PI);
     ellipse(xg + 3.5, 3 + yg, 7, 7);
     ellipse(xg - 10, 3 + yg, 7, 7);
