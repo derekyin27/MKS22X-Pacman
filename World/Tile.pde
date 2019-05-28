@@ -1,5 +1,5 @@
 
-class Tile extends World{
+/*class Tile extends World{
   public Tile(int x, int y, boolean wallIs){
     if (wallIs){
     right = false;
@@ -52,3 +52,4 @@ class Tile extends World{
     tileY = y;
 }
 }
+*/
