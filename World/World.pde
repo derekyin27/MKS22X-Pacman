@@ -12,4 +12,5 @@ void draw() {
   }
   pacman pac = new pacman();
   pac.display();
+  pac.move();
 }
