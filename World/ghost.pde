@@ -1,5 +1,5 @@
 
-class ghost {
+/*class ghost {
   color c;
   void move(){
     xg = 0;
@@ -70,3 +70,4 @@ class ghost {
     ellipse(xg - 6, yg - 6, 2, 2);
   }
 }
+*/
