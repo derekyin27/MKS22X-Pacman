@@ -1,8 +1,7 @@
 
-/*class ghost {
+class ghost {
   color c;
   void move(){
-  if (gcounter % 50 != 0){
     xg = 0;
     yg = 0;
     if (xg == x){
@@ -24,7 +23,7 @@
       xg += lastmove[0];
       yg += lastmove[1];
     }
-    }
+    
     else{
      int rand = (int) random(0, 20);
      if (rand == 1){
@@ -71,4 +70,3 @@
     ellipse(xg - 6, yg - 6, 2, 2);
   }
 }
-*/
