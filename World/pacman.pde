@@ -1,11 +1,12 @@
 class pacman{
 void display(){
   fill(255,255,0);
+  ellipseMode(CENTER);
   ellipse(x+250,y+ 250, 20, 20);
 }
 void move(){
   int reset = 0;
-  if (key == 'd' && reset == 0 ){
+  if (key == 'd' && reset == 0 && x > 0 && !grid[(y+10)/20][(x+30)/20]){
     for (int i =0; i < 5; i++){
       delay(10);
       x+=4;
