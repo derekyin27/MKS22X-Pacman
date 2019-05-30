@@ -5,7 +5,7 @@ void display(){
 }
 void move(){
   int reset = 0;
-  if (key == 'd' && reset == 0){
+  if (key == 'd' && reset == 0 ){
     for (int i =0; i < 5; i++){
       delay(10);
       x+=4;
