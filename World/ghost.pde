@@ -27,11 +27,6 @@ class ghost {
        yg -= 4;
        oldy = -4;
        }
-    }else{
-      xg += lastmove[0];
-      yg += lastmove[1];
-      oldx = lastmove[0];
-      oldy = lastmove[1];
     }
     
     else{
