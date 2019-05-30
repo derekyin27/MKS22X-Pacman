@@ -25,14 +25,19 @@ Each new tile creates an invisible square that will be displayed on the board.
 These squares represent the boundaries in which Pacman will be allowed to move.
 Walls will be colored in with a blue color.
 
-Albert: Today, I drew and figured out how to draw the actual ghost using arcs and ellipses. It looks like the actual ghost in pacman now.
+Albert: Today, I drew and figured out how to draw the actual ghost using arcs and ellipses. It looks like the actual ghost in pacman now. There are eyes and the shape is very detailed.
 
 5/27/19
 Derek: Attempted to start making map with corridors and Walls.
 However, pacman movement is still bugged and he does not move when an input is given.
 The issue lies within the 2d array used to store each node, and whether or not a node is a wall or not can be accessed using the array. however, coupled with the spawn point of pacman and his movement numbers, this messes with the array and accessing values in that array.
 
+Albert: Today, I made lastmove workable, and now we just have to implement it in World.
+I also fixed the ghost movement because there were some bugs. It would just stay in place, but now it actually moves. 
+
 5/29/19:
 Derek: Created new grid, new pacman movement mechanics.
 Now, pacman is locked to the grid and cannot move outside the boundaries of the squares.
 Now, a boolean 2d array is used to access specific boxes and see whether or not it is a wall. 
+
+Albert: Today, 

@@ -1,27 +1,32 @@
-
-/*class ghost {
+class ghost {
   color c;
   void move(){
-    xg = 0;
-    yg = 0;
+    if (xg == x && yg = y){
+      //Lose game
+    }
+    
+    //continue
+    int oldx = 0;
+    int oldy = 0;
     if (xg == x){
      if (xg < x){
       xg += 4;
+      oldx = 4;
      }
      else{
        xg -= 4;
+       oldx = -4;
      }
     }
     else if(yg == y){
      if (yg < y){
       yg += 4;
+      oldy = 4;
      }
      else{
        yg -= 4;
+       oldy = -4;
        }
-    }else{
-      xg += lastmove[0];
-      yg += lastmove[1];
     }
     
     else{
@@ -30,22 +35,32 @@
        //MAKE LASTMOVE!!!!
        xg += lastmove[0];
        yg += lastmove[1];
+       oldx = lastmove[0];
+       oldy = lastmove[1];       
      }
-
+    else{
       int ran = (int) random(0, 3);
 
       if (ran == 0){
         yg += 3;
+        oldy = 3;
       }
       if (ran == 1){
         xg -= 3;
+        oldx = 3;
       }
       if (ran == 2){
         yg -= 3;
+        oldy = -3;
       }
-      else{xg += 3;}
-      lastmove[0] = xg;
-      lastmove[1] = yg;
+      else{
+        xg += 3;
+        old x= 3;
+      }
+    }
+      
+      lastmove[0] = oldx;
+      lastmove[1] = oldy;
     }
   }
   void ghostSetup(){
@@ -70,4 +85,3 @@
     ellipse(xg - 6, yg - 6, 2, 2);
   }
 }
-*/
