@@ -38,7 +38,7 @@ class ghost {
        oldx = lastmove[0];
        oldy = lastmove[1];       
      }
-
+    else{
       int ran = (int) random(0, 3);
 
       if (ran == 0){
@@ -57,6 +57,7 @@ class ghost {
         xg += 3;
         old x= 3;
       }
+    }
       
       lastmove[0] = oldx;
       lastmove[1] = oldy;
