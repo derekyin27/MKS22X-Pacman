@@ -1,6 +1,11 @@
 class ghost {
   color c;
   void move(){
+    if (xg == x && yg = y){
+      //Lose game
+    }
+    
+    //continue
     int oldx = 0;
     int oldy = 0;
     if (xg == x){
