@@ -1,15 +1,16 @@
 class ghost {
   color c;
   void ghostmove(){
-    if (xg == x && yg == y){
+    //250!!!!
+    if (xg == (x + 250) && yg == (y + 250)){
       //Lose game
     }
     
     //continue
     int oldx = 0;
     int oldy = 0;
-    if (xg == x){
-     if (xg < x){
+    if (xg == (x + 250)){
+     if (xg < (x + 250)){
       for (int i =0; i < 5; i++){
         delay(10);
         xg+=4;
@@ -24,8 +25,8 @@ class ghost {
        oldx = -4;
      }
     }
-    else if(yg == y){
-     if (yg < y){
+    else if(yg == (y + 250)){
+     if (yg < (y + 250)){
       for (int i =0; i < 5; i++){
         delay(10);
         yg+=4;

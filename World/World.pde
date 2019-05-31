@@ -16,8 +16,8 @@ void setup(){
   }
   lastmove[0] = 0;
   lastmove[1] = 20;
-  xg = 30;
-  yg = 30;
+  xg = 250;
+  yg = 80;
 }
 void draw() {
   background(0,0,0);
