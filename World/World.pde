@@ -1,5 +1,6 @@
 import java.util.*;
-int x, y;
+int x, y, xg, yg;
+int[] lastmove = new int[2];
  int row = 30;
  int col = 30;
  boolean[][] grid = new boolean[row][col];
@@ -13,6 +14,10 @@ void setup(){
       }
     }
   }
+  lastmove[0] = 0;
+  lastmove[1] = 20;
+  xg = 30;
+  yg = 30;
 }
 void draw() {
   background(0,0,0);
@@ -33,6 +38,9 @@ void draw() {
       rect(cellX, cellY, 20, 20);
     }
   }
+  ghost gho = new ghost();
+  gho.ghostSetup();
+  gho.ghostmove();
   pacman pac = new pacman();
   pac.display();
   pac.move();

@@ -1,7 +1,7 @@
-/*class ghost {
+class ghost {
   color c;
-  void move(){
-    if (xg == x && yg = y){
+  void ghostmove(){
+    if (xg == x && yg == y){
       //Lose game
     }
     
@@ -10,21 +10,33 @@
     int oldy = 0;
     if (xg == x){
      if (xg < x){
-      xg += 4;
+      for (int i =0; i < 5; i++){
+        delay(10);
+        xg+=4;
+      }
       oldx = 4;
      }
      else{
-       xg -= 4;
+      for (int i =0; i < 5; i++){
+        delay(10);
+        xg-=4;
+      }
        oldx = -4;
      }
     }
     else if(yg == y){
      if (yg < y){
-      yg += 4;
+      for (int i =0; i < 5; i++){
+        delay(10);
+        yg+=4;
+      }
       oldy = 4;
      }
      else{
-       yg -= 4;
+      for (int i =0; i < 5; i++){
+        delay(10);
+        yg-=4;
+      }
        oldy = -4;
        }
     }
@@ -32,6 +44,13 @@
     else{
      int rand = (int) random(0, 20);
      if (rand == 1){
+       int divx = lastmove[0] / 4;
+       int divy = lastmove[1] / 4;
+        for (int i =0; i < 5; i++){
+          delay(10);
+          yg+= divy;
+          xg += divx;
+        }
        //MAKE LASTMOVE!!!!
        xg += lastmove[0];
        yg += lastmove[1];
@@ -42,20 +61,32 @@
       int ran = (int) random(0, 3);
 
       if (ran == 0){
-        yg += 3;
+      for (int i =0; i < 5; i++){
+        delay(10);
+        yg+=4;
+      }
         oldy = 3;
       }
       if (ran == 1){
-        xg -= 3;
+      for (int i =0; i < 5; i++){
+        delay(10);
+        xg -=4;
+      }
         oldx = 3;
       }
       if (ran == 2){
-        yg -= 3;
+      for (int i =0; i < 5; i++){
+        delay(10);
+        yg-=4;
+      }
         oldy = -3;
       }
       else{
-        xg += 3;
-        old x= 3;
+      for (int i =0; i < 5; i++){
+        delay(10);
+        xg+=4;
+      }
+        oldx= 3;
       }
     }
       
@@ -85,4 +116,3 @@
     ellipse(xg - 6, yg - 6, 2, 2);
   }
 }
-*/
