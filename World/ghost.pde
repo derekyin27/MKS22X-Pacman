@@ -1,4 +1,4 @@
-class ghost {
+/*class ghost {
   color c;
   void move(){
     if (xg == x && yg = y){
@@ -85,3 +85,4 @@ class ghost {
     ellipse(xg - 6, yg - 6, 2, 2);
   }
 }
+*/

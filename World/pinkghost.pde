@@ -1,4 +1,4 @@
-//build a grid
+/*//build a grid
 int rows = 20;
 int columns = 20;
 //if a cell is true it's an obstacle
@@ -8,19 +8,6 @@ boolean[][] grid = new boolean[rows][columns];
 int playerIndexX = 10;
 int playerIndexY = 10;
 
-void setup() {
-  size(300, 300);
-
-  //randomly place obstacles in the grid
-  for (int row = 0; row < grid.length; row++) {
-    for (int column = 0; column < grid[row].length; column++) {
-      //each cell has a 20% chance of being an obstacle
-      if (random(1) < .2) {
-        grid[row][column] = true;
-      }
-    }
-  }
-}
 
 void draw() {
   background(128);
@@ -83,3 +70,4 @@ void keyPressed() {
     }
   }
 }
+*/

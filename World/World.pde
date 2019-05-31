@@ -1,24 +1,36 @@
 import java.util.*;
 int x, y;
- boolean[][] grid;
+ int row = 30;
+ int col = 30;
+ boolean[][] grid = new boolean[row][col];
 void setup(){
-  size(600, 600);
+  size(600, 600); 
+  for (int rows = 0; rows < grid.length; rows++) {
+    for (int columns = 0; columns < grid[rows].length; columns++) {
+      //each cell has a 20% chance of being an obstacle
+      if (random(1) < .2) {
+        grid[rows][columns] = true;
+      }
+    }
+  }
 }
 void draw() {
-  grid = new boolean[30][30];
   background(0,0,0);
-  for (int c = 0; c < 30; c++){
-    for (int r = 0; r < 30; r++){
-      if ((r >= 15 && r <= 16) || (c >=15 && c <=16)){
-        fill(0,0,0);
-        rect(r*20, c*20, 20, 20);
-        grid[r][c]=false;
-      }
+  for (int r = 0; r < row; r++) {
+    for (int c = 0; c < col; c++) {
+    
+      int cellX = 20*c;
+      int cellY = 20*r;
+
+      //fill the obstacles in with red
+      if (grid[r][c]) {
+        fill(0,0,255);
+      } 
       else {
-      fill(0,0,255);
-      rect(r*20, c*20, 20, 20);
-      grid[r][c]=true;
+        fill(0,0,0);
       }
+
+      rect(cellX, cellY, 20, 20);
     }
   }
   pacman pac = new pacman();
