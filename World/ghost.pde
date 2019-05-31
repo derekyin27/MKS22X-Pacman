@@ -42,8 +42,6 @@ class ghost {
     }
     
     else{
-     int rand = (int) random(0, 20);
-     if (rand == 1){
        int divx = lastmove[0] / 4;
        int divy = lastmove[1] / 4;
         for (int i =0; i < 5; i++){
@@ -56,40 +54,6 @@ class ghost {
        yg += lastmove[1];
        oldx = lastmove[0];
        oldy = lastmove[1];       
-     }
-    else{
-      int ran = (int) random(0, 3);
-
-      if (ran == 0){
-      for (int i =0; i < 5; i++){
-        delay(10);
-        yg+=4;
-      }
-        oldy = 3;
-      }
-      if (ran == 1){
-      for (int i =0; i < 5; i++){
-        delay(10);
-        xg -=4;
-      }
-        oldx = 3;
-      }
-      if (ran == 2){
-      for (int i =0; i < 5; i++){
-        delay(10);
-        yg-=4;
-      }
-        oldy = -3;
-      }
-      else{
-      for (int i =0; i < 5; i++){
-        delay(10);
-        xg+=4;
-      }
-        oldx= 3;
-      }
-    }
-      
       lastmove[0] = oldx;
       lastmove[1] = oldy;
     }
