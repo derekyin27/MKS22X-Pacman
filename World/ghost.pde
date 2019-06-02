@@ -13,7 +13,7 @@ class ghost {
     //print out.. tst it
     System.out.println(xg);
     System.out.println(x + 250);
-    if (Math.abs(xg - x) < 30){
+    if (yg == y + 250){
      if (xg < (x + 250)){
       for (int i =0; i < 20; i++){
         delay(10);
@@ -29,11 +29,11 @@ class ghost {
        oldx = -4;
      }
     }
-    else if(Math.abs(yg - y) < 30){
+    else if(xg == x + 250){
      if (yg < (y + 250)){
       for (int i =0; i < 20; i++){
         delay(10);
-        yg -= 1;
+        yg += 1;
       }
       oldy = 4;
      }
@@ -41,16 +41,16 @@ class ghost {
       for (int i =0; i < 20; i++){
         delay(10);
         //Swithcd up,, test it out
-        yg += 1;
+        yg -= 1;
       }
        oldy = -4;
        }
     }
 
     else{
-       int divx = lastmove[0] / 4;
-       int divy = lastmove[1] / 4;
-        for (int i =0; i < 5; i++){
+       int divx = lastmove[0] / 20;
+       int divy = lastmove[1] / 20;
+        for (int i = 0; i < 20; i++){
           delay(10);
           yg += divy;
           xg += divx;
