@@ -3,6 +3,12 @@ void display(){
   fill(255,255,0);
   ellipse(x+250,y+ 250, 20, 20);
 }
+int getX(){
+  return x;
+}
+int getY(){
+  return y;
+}
 void move(){
   int reset = 0;
   if (key == 'd' && reset == 0){

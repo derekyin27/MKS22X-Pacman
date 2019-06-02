@@ -1,60 +1,65 @@
 class ghost {
   color c;
+
   void ghostmove(){
     //250!!!!
     if (xg == (x + 250) && yg == (y + 250)){
       //Lose game
     }
-    
+
     //continue
     int oldx = 0;
     int oldy = 0;
-    if (xg == (x + 250)){
+    //print out.. tst it
+    System.out.println(xg);
+    System.out.println(x + 250);
+    if (Math.abs(xg - x) < 30){
      if (xg < (x + 250)){
-      for (int i =0; i < 5; i++){
+      for (int i =0; i < 20; i++){
         delay(10);
-        xg+=4;
+        xg += 1;
       }
       oldx = 4;
      }
      else{
-      for (int i =0; i < 5; i++){
+      for (int i =0; i < 20; i++){
         delay(10);
-        xg-=4;
+        xg-=1;
       }
        oldx = -4;
      }
     }
-    else if(yg == (y + 250)){
+    else if(Math.abs(yg - y) < 30){
      if (yg < (y + 250)){
-      for (int i =0; i < 5; i++){
+      for (int i =0; i < 20; i++){
         delay(10);
-        yg+=4;
+        yg -= 1;
       }
       oldy = 4;
      }
      else{
-      for (int i =0; i < 5; i++){
+      for (int i =0; i < 20; i++){
         delay(10);
-        yg-=4;
+        //Swithcd up,, test it out
+        yg += 1;
       }
        oldy = -4;
        }
     }
-    
+
     else{
        int divx = lastmove[0] / 4;
        int divy = lastmove[1] / 4;
         for (int i =0; i < 5; i++){
           delay(10);
-          yg+= divy;
+          yg += divy;
           xg += divx;
         }
        //MAKE LASTMOVE!!!!
        xg += lastmove[0];
        yg += lastmove[1];
        oldx = lastmove[0];
-       oldy = lastmove[1];       
+       oldy = lastmove[1];
       lastmove[0] = oldx;
       lastmove[1] = oldy;
     }
