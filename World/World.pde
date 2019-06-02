@@ -1,5 +1,6 @@
 import java.util.*;
-int x, y, xg, yg;
+int x, y, xg, yg, pelletX, pelletY;
+boolean pisDead;
 int[] lastmove = new int[2];
  int row = 30;
  int col = 30;
