@@ -4,10 +4,10 @@ void display(){
   ellipse(x+250,y+ 250, 20, 20);
 }
 int getX(){
-  return x;
+  return x + 250;
 }
 int getY(){
-  return y;
+  return y + 250;
 }
 void move(){
   int reset = 0;
