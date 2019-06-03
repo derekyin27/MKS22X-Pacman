@@ -11,8 +11,6 @@ class ghost {
     int oldx = 0;
     int oldy = 0;
     //print out.. tst it
-    System.out.println(xg);
-    System.out.println(x + 250);
     if (yg == y + 250){
      if (xg < (x + 250)){
       for (int i =0; i < 20; i++){

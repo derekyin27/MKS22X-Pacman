@@ -5,6 +5,7 @@ int[] lastmove = new int[2];
  int row = 30;
  int col = 30;
  boolean[][] grid = new boolean[row][col];
+ pellet pell = new pellet();
 void setup(){
   size(600, 600);
   for (int rows = 0; rows < grid.length; rows++) {
@@ -37,6 +38,14 @@ void draw() {
       }
 
       rect(cellX, cellY, 20, 20);
+    }
+  }
+  for (int rows = 0; rows < grid.length; rows++) {
+    for (int columns = 0; columns < grid[rows].length; columns++) {
+      //each cell has a 20% chance of being an obstacle
+      if (!grid[rows][columns]) {
+        pell.display(columns * 20 + 10, rows * 20 + 10);
+      }
     }
   }
   pacman pac = new pacman();

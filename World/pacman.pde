@@ -23,7 +23,7 @@ void move(){
     for (int i =0; i < 5; i++){
       delay(10);
       y-=4;
-      reset+=1;
+      reset += 1;
     }
     reset = 0;
   }
