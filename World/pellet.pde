@@ -14,7 +14,7 @@ class pellet{
     return pelletY;
   }
   boolean isDead(){
-    if (pelletX == x + 250 && pelletY == y + 250){
+    if (pelletX == x + 240 && pelletY == y + 240){
       pisDead = true;
       return true;
     }

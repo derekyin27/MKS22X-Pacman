@@ -1,5 +1,7 @@
 import java.util.*;
-int x, y, xg, yg, pelletX, pelletY;
+int xg, yg, pelletX, pelletY;
+int x = 240;
+int y = 240;
 
 boolean pisDead;
   ghost gho = new ghost();
@@ -18,7 +20,7 @@ void setup(){
       if (random(1) < .2) {
         grid[rows][columns] = true;
       }
-      else grid[rows][columns] = false;
+      
     }
   }
   lastmove[0] = 0;
@@ -53,9 +55,9 @@ void draw() {
 
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
-      System.out.println("columns: " + (columns * 20 + 10));
-      System.out.println("rows: " + (rows * 20 + 10));
-      System.out.println(pac.getX() + ", " + pac.getY());
+      //System.out.println("columns: " + (columns * 20 + 10));
+      //System.out.println("rows: " + (rows * 20 + 10));
+      //System.out.println(pac.getX() + ", " + pac.getY());
       if (columns * 20 + 10 == pac.getX() && rows * 20 + 10 == pac.getY() ){
         pellgrid[rows][columns] = false;
       }
@@ -66,6 +68,31 @@ void draw() {
   }
   gho.ghostSetup();
   gho.ghostmove();
- pac.display();
-  pac.move();
+  pac.display();
+}
+void keyPressed(){
+if (key == 'w'){
+  
+  if (y/20 > 0 && !grid[(y/20)-1][x/20]){
+    y-=20;
+  }
+}
+if (key == 's'){
+  println(x + " " + y);
+  if (y/20 < row-1 && !grid[(y/20)+1][x/20]){
+    y+=20;
+  }
+}
+if (key == 'a'){
+  println(x + " " + y);
+  if (x/20 > 0 && !grid[y/20][(x/20)-1]){
+    x-=20;
+  }
+}
+if (key == 'd'){
+  println(x + " " + y);
+  if (x/20 < col-1 && !grid[y/20][(x/20)+1]){
+    x+=20;
+  }
+}
 }
