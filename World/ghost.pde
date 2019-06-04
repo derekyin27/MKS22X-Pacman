@@ -1,3 +1,4 @@
+import java.util.Random;
 class ghost {
   color c;
 int getX(){
@@ -6,15 +7,13 @@ int getX(){
 int getY(){
   return yg;
 }
-  void ghostmove(){
-    //250!!!!
-    if (xg == (x) && yg == (y)){
-      //Lose game
-    }
-
-    //continue
-    int oldx = 0;
+void ghostmove(){
+     int oldx = 0;
     int oldy = 0;
+    //250!!!!
+  //random movmeent here
+    //continue
+
     //print out.. tst it
     if (yg == y){
      if (xg < (x)){
@@ -22,14 +21,14 @@ int getY(){
         delay(10);
         xg += 1;
       }
-      oldx = 4;
+      oldx = 20;
      }
      else{
       for (int i =0; i < 20; i++){
         delay(10);
         xg-=1;
       }
-       oldx = -4;
+       oldx = -20;
      }
     }
     else if(xg == x){
@@ -38,7 +37,7 @@ int getY(){
         delay(10);
         yg += 1;
       }
-      oldy = 4;
+      oldy = 20;
      }
      else{
       for (int i =0; i < 20; i++){
@@ -46,10 +45,84 @@ int getY(){
         //Swithcd up,, test it out
         yg -= 1;
       }
-       oldy = -4;
+       oldy = -20;
        }
     }
-
+    else{
+      if (xg > 590){
+      for (int i =0; i < 20; i++){
+        delay(10);
+        xg -= 1;
+      }
+      oldx = -20;
+            lastmove[0] = oldx;
+      lastmove[1] = oldy;
+    return;
+  }
+  if (xg < 10){
+      for (int i =0; i < 20; i++){
+        delay(10);
+        xg += 1;
+      }
+      oldx = 20;
+            lastmove[0] = oldx;
+      lastmove[1] = oldy;
+    return;
+  }
+  if (yg < 10){
+      for (int i =0; i < 20; i++){
+        delay(10);
+        yg += 1;
+      }
+      oldy = 20;
+            lastmove[0] = oldx;
+      lastmove[1] = oldy;
+    return;
+  }
+  if (yg > 590){
+      for (int i =0; i < 20; i++){
+        delay(10);
+        yg -= 1;
+      }
+      oldy = -20;
+            lastmove[0] = oldx;
+      lastmove[1] = oldy;
+    return;
+  }
+//dfdfdfdfd
+//fix oldx and oldy, should be 20 not 4
+  if (Math.random() <  .2){
+    Random rand = new Random();
+    int n = rand.nextInt(4);
+    if (n == 0){
+      for (int i =0; i < 20; i++){
+        delay(10);
+        xg-=1;
+      }
+      oldx = -20;
+    }
+    if (n == 1){
+      for (int i =0; i < 20; i++){
+        delay(10);
+        xg+=1;
+      }
+      oldx = +20;
+    }
+    if (n == 2){
+      for (int i =0; i < 20; i++){
+        delay(10);
+        yg+=1;
+      }
+      oldy = +20;
+    }
+    else {
+      for (int i =0; i < 20; i++){
+        delay(10);
+        yg-=1;
+      }
+      oldy = -20;
+    }
+  }
     else{
        int divx = lastmove[0] / 20;
        int divy = lastmove[1] / 20;
@@ -59,13 +132,12 @@ int getY(){
           xg += divx;
         }
        //MAKE LASTMOVE!!!!
-       xg += lastmove[0];
-       yg += lastmove[1];
        oldx = lastmove[0];
        oldy = lastmove[1];
+  }
+    }
       lastmove[0] = oldx;
       lastmove[1] = oldy;
-    }
   }
   void ghostSetup(){
    fill(c);
