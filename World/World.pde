@@ -1,7 +1,7 @@
 import java.util.*;
 int xg, yg, pelletX, pelletY;
-int x = 240;
-int y = 240;
+int x = 250;
+int y = 250;
 
 boolean pisDead;
   ghost gho = new ghost();

@@ -3,7 +3,7 @@ class ghost {
 
   void ghostmove(){
     //250!!!!
-    if (xg == (x + 250) && yg == (y + 250)){
+    if (xg == (x) && yg == (y)){
       //Lose game
     }
 
@@ -11,8 +11,8 @@ class ghost {
     int oldx = 0;
     int oldy = 0;
     //print out.. tst it
-    if (yg == y + 250){
-     if (xg < (x + 250)){
+    if (yg == y){
+     if (xg < (x)){
       for (int i =0; i < 20; i++){
         delay(10);
         xg += 1;
@@ -27,8 +27,8 @@ class ghost {
        oldx = -4;
      }
     }
-    else if(xg == x + 250){
-     if (yg < (y + 250)){
+    else if(xg == x){
+     if (yg < (y)){
       for (int i =0; i < 20; i++){
         delay(10);
         yg += 1;

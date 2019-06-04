@@ -1,14 +1,13 @@
 class pacman{
 void display(){
   fill(255,255,0);
-  ellipseMode(CORNER);
   ellipse(x, y, 20, 20);
 }
 int getX(){
-  return x+240;
+  return x;
 }
 int getY(){
-  return y+240;
+  return y;
 }
 void move(){
  if (key == 'w'){
