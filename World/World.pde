@@ -7,6 +7,35 @@ void loseGame(){
     setup2();
   }
 }
+
+void win(){
+    size(600, 600);
+  for (int rows = 0; rows < grid.length; rows++) {
+    for (int columns = 0; columns < grid[rows].length; columns++) {
+      //each cell has a 20% chance of being an obstacle
+      if ((rows >= 10 && rows <= 20 && rows != 15 && rows != 16) || (columns >=10 && columns <= 17)  ){
+        grid[rows][columns] = false;
+      }
+      else grid[rows][columns] = true;
+    }
+  }
+  lastmove[0] = 0;
+  lastmove[1] = 20;
+  x = 250;
+  y = 250;
+  xg = 250;
+  yg = 80;
+   for (int rows = 0; rows < grid.length; rows++) {
+    for (int columns = 0; columns < grid[rows].length; columns++) {
+      pellgrid[rows][columns] = true;
+    }
+  }
+  textSize(60);
+  text("YOU WIN!!!", 50, 200);
+
+  fill(0, 102, 153);
+  delay(100);
+}
 boolean pisDead;
   ghost gho = new ghost();
   pacman pac = new pacman();
