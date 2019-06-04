@@ -1,7 +1,7 @@
 import java.util.*;
 int xg, yg, pelletX, pelletY;
-int x = 250;
-int y = 250;
+int x;
+int y;
 
 boolean pisDead;
   ghost gho = new ghost();
@@ -26,6 +26,8 @@ void setup(){
   }
   lastmove[0] = 0;
   lastmove[1] = 20;
+  x = 250;
+  y = 250;
   xg = 250;
   yg = 80;
    for (int rows = 0; rows < grid.length; rows++) {
@@ -33,6 +35,35 @@ void setup(){
       pellgrid[rows][columns] = true;
     }
   }
+}
+
+void setup2(){
+  size(600, 600);
+  for (int rows = 0; rows < grid.length; rows++) {
+    for (int columns = 0; columns < grid[rows].length; columns++) {
+      //each cell has a 20% chance of being an obstacle
+      if ((rows >= 10 && rows <= 20 && rows != 15 && rows != 16) || (columns >=10 && columns <= 17)  ){
+        grid[rows][columns] = false;
+      }
+      else grid[rows][columns] = true;
+    }
+  }
+  lastmove[0] = 0;
+  lastmove[1] = 20;
+  x = 250;
+  y = 250;
+  xg = 250;
+  yg = 80;
+   for (int rows = 0; rows < grid.length; rows++) {
+    for (int columns = 0; columns < grid[rows].length; columns++) {
+      pellgrid[rows][columns] = true;
+    }
+  }
+  textSize(60);
+  text("YOU LOSE!!!", 50, 200);
+
+  fill(0, 102, 153);
+  delay(50);
 }
 void draw() {
     background(0,0,0);
@@ -76,10 +107,11 @@ void draw() {
   gho.ghostmove();
   pac.display();
   pac.move();
+  loseGame();
 }
 void loseGame(){
   if (Math.abs(gho.getX() - pac.getX()) < 18 && Math.abs(gho.getY() - pac.getY()) < 18){
-    setup();
+    setup2();
   }
 }
 /*void keyPressed(){
