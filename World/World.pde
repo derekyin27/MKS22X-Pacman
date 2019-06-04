@@ -1,5 +1,6 @@
 import java.util.*;
 int x, y, xg, yg, pelletX, pelletY;
+
 boolean pisDead;
   ghost gho = new ghost();
   pacman pac = new pacman();
@@ -17,6 +18,7 @@ void setup(){
       if (random(1) < .2) {
         grid[rows][columns] = true;
       }
+      else grid[rows][columns] = false;
     }
   }
   lastmove[0] = 0;
@@ -62,9 +64,8 @@ void draw() {
       }
     }
   }
-  pac.display();
-  pac.move();
   gho.ghostSetup();
   gho.ghostmove();
-
+ pac.display();
+  pac.move();
 }
