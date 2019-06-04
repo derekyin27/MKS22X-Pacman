@@ -12,6 +12,7 @@ int[] lastmove = new int[2];
  boolean[][] grid = new boolean[row][col];
  boolean[][] pellgrid = new boolean[row][col];
  pellet pell = new pellet();
+ boolean noPellet = true;
 void setup(){
   size(600, 600);
   for (int rows = 0; rows < grid.length; rows++) {
@@ -62,14 +63,24 @@ void draw() {
         pellgrid[rows][columns] = false;
       }
       if (!grid[rows][columns] && pellgrid[rows][columns]) {
+        noPellet = false;
         pell.display(columns * 20 + 10, rows * 20 + 10);
       }
     }
+  }
+  if (noPellet){
+    //maybe make a setup2 for a harder level...
+    setup();
   }
   gho.ghostSetup();
   gho.ghostmove();
   pac.display();
   pac.move();
+}
+void loseGame(){
+  if (Math.abs(gho.getX() - pac.getX()) < 18 && Math.abs(gho.getY() - pac.getY()) < 18){
+    setup();
+  }
 }
 /*void keyPressed(){
 if (key == 'w'){

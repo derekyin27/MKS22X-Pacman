@@ -1,6 +1,11 @@
 class ghost {
   color c;
-
+int getX(){
+  return xg;
+}
+int getY(){
+  return yg;
+}
   void ghostmove(){
     //250!!!!
     if (xg == (x) && yg == (y)){
