@@ -2,7 +2,11 @@ import java.util.*;
 int xg, yg, pelletX, pelletY;
 int x;
 int y;
-
+void loseGame(){
+  if (Math.abs(gho.getX() - pac.getX()) <= 20 && Math.abs(gho.getY() - pac.getY()) <= 20){
+    setup2();
+  }
+}
 boolean pisDead;
   ghost gho = new ghost();
   pacman pac = new pacman();
@@ -73,7 +77,7 @@ void draw() {
       int cellX = 20*c;
       int cellY = 20*r;
 
-      //fill the obstacles in with red
+      //fill the obstacles in with blue
       if (grid[r][c]) {
         fill(0,0,255);
       }
@@ -87,9 +91,6 @@ void draw() {
 
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
-      //System.out.println("columns: " + (columns * 20 + 10));
-      //System.out.println("rows: " + (rows * 20 + 10));
-      //System.out.println(pac.getX() + ", " + pac.getY());
       if (columns * 20 + 10 == pac.getX() && rows * 20 + 10 == pac.getY() ){
         pellgrid[rows][columns] = false;
       }
@@ -108,11 +109,6 @@ void draw() {
   pac.display();
   pac.move();
   loseGame();
-}
-void loseGame(){
-  if (Math.abs(gho.getX() - pac.getX()) < 18 && Math.abs(gho.getY() - pac.getY()) < 18){
-    setup2();
-  }
 }
 /*void keyPressed(){
 if (key == 'w'){

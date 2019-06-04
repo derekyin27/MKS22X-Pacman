@@ -8,8 +8,40 @@ int getY(){
   return yg;
 }
 void ghostmove(){
+
+
+
      int oldx = 0;
     int oldy = 0;
+        if (x/20 < col-1 && grid[(yg/20)][(xg/20) + 1]){
+          xg -= 20;
+          oldx = -20;
+          lastmove[0] = oldx;
+          lastmove[1] = oldy;
+          return;
+        }
+        if (x/20 > 0 && grid[(yg/20)][(xg/20) - 1]){
+          xg += 20;
+          oldx = 20;
+          lastmove[0] = oldx;
+          lastmove[1] = oldy;
+          return;
+        }
+        if (yg/20 > 0 && grid[(yg/20) - 1][(xg/20)]){
+          yg += 20;
+          oldy = 20;
+          lastmove[0] = oldx;
+          lastmove[1] = oldy;
+          return;
+
+        }
+        if (yg/20 < row-1 && grid[(yg/20) + 1][(xg/20)]){
+          yg -= 20;
+          oldy = -20;
+          lastmove[0] = oldx;
+          lastmove[1] = oldy;
+          return;
+        }
     //250!!!!
   //random movmeent here
     //continue
@@ -18,14 +50,14 @@ void ghostmove(){
     if (yg == y){
      if (xg < (x)){
       for (int i =0; i < 20; i++){
-        delay(10);
+        delay(5);
         xg += 1;
       }
       oldx = 20;
      }
      else{
       for (int i =0; i < 20; i++){
-        delay(10);
+        delay(5);
         xg-=1;
       }
        oldx = -20;
@@ -34,14 +66,14 @@ void ghostmove(){
     else if(xg == x){
      if (yg < (y)){
       for (int i =0; i < 20; i++){
-        delay(10);
+        delay(5);
         yg += 1;
       }
       oldy = 20;
      }
      else{
       for (int i =0; i < 20; i++){
-        delay(10);
+        delay(5);
         //Swithcd up,, test it out
         yg -= 1;
       }
@@ -51,7 +83,7 @@ void ghostmove(){
     else{
       if (xg > 590){
       for (int i =0; i < 20; i++){
-        delay(10);
+        delay(5);
         xg -= 1;
       }
       oldx = -20;
@@ -71,7 +103,7 @@ void ghostmove(){
   }
   if (yg < 10){
       for (int i =0; i < 20; i++){
-        delay(10);
+        delay(5);
         yg += 1;
       }
       oldy = 20;
@@ -81,7 +113,7 @@ void ghostmove(){
   }
   if (yg > 590){
       for (int i =0; i < 20; i++){
-        delay(10);
+        delay(5);
         yg -= 1;
       }
       oldy = -20;
@@ -95,45 +127,43 @@ void ghostmove(){
     Random rand = new Random();
     int n = rand.nextInt(4);
     if (n == 0){
+
+        for (int i =0; i < 20; i++){
+        delay(5);
+        xg -= 1;
+        }
+        oldx = -20;
       //switch up the numbrs..
-        if (x/20 < col-1 && !grid[(yg/20)][(xg/20) + 1]){
-          xg += 20;
-          oldx = 20;
-        }
-        else{
-          xg -= 20;
-          oldx = -20;
-        }
+      /*
+        }*/
     }
     if (n == 1){
-        if (x/20 > 0 && !grid[(yg/20)][(xg/20) - 1]){
-          xg -= 20;
-          oldx = -20;
-        }
-        else{
-          xg += 20;
-          oldx = 20;
-        }
+       for (int i =0; i < 20; i++){
+        delay(5);
+       yg += 1;
+       }
+       oldy = 20;
+      /*
+        }*/
     }
     if (n == 2){
-        if (yg/20 > 0 && !grid[(yg/20) - 1][(xg/20)]){
-          yg -= 20;
-          oldy = -20;
-        }
-        else{
-          yg += 20;
-          oldy = 20;
-        }
+      for (int i =0; i < 20; i++){
+        delay(5);
+        yg -= 1;
+      }
+      oldy = -20;
+      /*
+        }*/
     }
     if (n == 3){
-        if (yg/20 < row-1 && !grid[(yg/20) + 1][(xg/20)]){
-          yg += 20;
-          oldy = 20;
-        }
-        else{
-          yg -= 20;
-          oldy = -20;
-        }
+
+      for (int i =0; i < 20; i++){
+        delay(5);
+      xg += 1;
+      }
+      oldx = 20;
+      /*
+*/
     }
   }
     else{
@@ -153,7 +183,7 @@ void ghostmove(){
       lastmove[1] = oldy;
   }
   void ghostSetup(){
-   fill(c);
+   fill(127,0,0);
    //find good coords later
    int[] lastmove = new int[2];
    lastmove[0] = 0;
