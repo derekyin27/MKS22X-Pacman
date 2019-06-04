@@ -41,3 +41,8 @@ Now, pacman is locked to the grid and cannot move outside the boundaries of the 
 Now, a boolean 2d array is used to access specific boxes and see whether or not it is a wall. 
 
 Albert: Today, 
+
+6/3/19:
+Derek: Finally completed collision.
+Each tile was stored into a 2d boolean array and every time that pacman advances a square, it will check for collision.
+Albert finished pellet interaction, but when tweaking collision, the interaction was disrupted and now Pacman does not consume the pellets properly. We are looking for a fix.
