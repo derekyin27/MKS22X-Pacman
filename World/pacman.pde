@@ -11,18 +11,28 @@ int getY(){
   return y+240;
 }
 void move(){
-  if (key == 'd'){
-    x+=20;
-  }
-  if (key == 'w' ){
+ if (key == 'w'){
+  if (y/20 > 0 && !grid[(y/20)-1][x/20]){
     y-=20;
   }
-  if (key == 's'){
-   y+=20;
-
+}
+if (key == 's'){
+  println(x + " " + y);
+  if (y/20 < row-1 && !grid[(y/20)+1][x/20]){
+    y+=20;
   }
-  if (key == 'a'){
+}
+if (key == 'a'){
+  println(x + " " + y);
+  if (x/20 > 0 && !grid[y/20][(x/20)-1]){
     x-=20;
   }
+}
+if (key == 'd'){
+  println(x + " " + y);
+  if (x/20 < col-1 && !grid[y/20][(x/20)+1]){
+    x+=20;
+  }
+}
 }
 }

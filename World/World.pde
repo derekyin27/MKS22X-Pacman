@@ -17,10 +17,10 @@ void setup(){
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       //each cell has a 20% chance of being an obstacle
-      if (random(1) < .2) {
-        grid[rows][columns] = true;
+      if ((rows >= 10 && rows <= 20 && rows != 15 && rows != 16) || (columns >=10 && columns <= 17)  ){
+        grid[rows][columns] = false;
       }
-      
+      else grid[rows][columns] = true;
     }
   }
   lastmove[0] = 0;
@@ -69,10 +69,10 @@ void draw() {
   gho.ghostSetup();
   gho.ghostmove();
   pac.display();
+  pac.move();
 }
-void keyPressed(){
+/*void keyPressed(){
 if (key == 'w'){
-  
   if (y/20 > 0 && !grid[(y/20)-1][x/20]){
     y-=20;
   }
@@ -96,3 +96,4 @@ if (key == 'd'){
   }
 }
 }
+*/
