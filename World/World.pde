@@ -29,7 +29,7 @@ void setup(){
   x = 250;
   y = 250;
   xg = 250;
-  yg = 80;
+  yg = 70;
    for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       pellgrid[rows][columns] = true;

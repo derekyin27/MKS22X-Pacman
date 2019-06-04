@@ -95,32 +95,45 @@ void ghostmove(){
     Random rand = new Random();
     int n = rand.nextInt(4);
     if (n == 0){
-      for (int i =0; i < 20; i++){
-        delay(10);
-        xg-=1;
-      }
-      oldx = -20;
+      //switch up the numbrs..
+        if (x/20 < col-1 && !grid[(yg/20)][(xg/20) + 1]){
+          xg += 20;
+          oldx = 20;
+        }
+        else{
+          xg -= 20;
+          oldx = -20;
+        }
     }
     if (n == 1){
-      for (int i =0; i < 20; i++){
-        delay(10);
-        xg+=1;
-      }
-      oldx = +20;
+        if (x/20 > 0 && !grid[(yg/20)][(xg/20) - 1]){
+          xg -= 20;
+          oldx = -20;
+        }
+        else{
+          xg += 20;
+          oldx = 20;
+        }
     }
     if (n == 2){
-      for (int i =0; i < 20; i++){
-        delay(10);
-        yg+=1;
-      }
-      oldy = +20;
+        if (yg/20 > 0 && !grid[(yg/20) - 1][(xg/20)]){
+          yg -= 20;
+          oldy = -20;
+        }
+        else{
+          yg += 20;
+          oldy = 20;
+        }
     }
-    else {
-      for (int i =0; i < 20; i++){
-        delay(10);
-        yg-=1;
-      }
-      oldy = -20;
+    if (n == 3){
+        if (yg/20 < row-1 && !grid[(yg/20) + 1][(xg/20)]){
+          yg += 20;
+          oldy = 20;
+        }
+        else{
+          yg -= 20;
+          oldy = -20;
+        }
     }
   }
     else{
