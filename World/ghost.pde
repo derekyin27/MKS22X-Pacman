@@ -13,6 +13,47 @@ void ghostmove(){
 
      int oldx = 0;
     int oldy = 0;
+
+          if (xg > 570){
+      for (int i =0; i < 20; i++){
+        delay(5);
+        xg -= 1;
+      }
+      oldx = -20;
+            lastmove[0] = oldx;
+      lastmove[1] = oldy;
+    return;
+  }
+  if (xg < 30){
+      for (int i =0; i < 20; i++){
+        delay(10);
+        xg += 1;
+      }
+      oldx = 20;
+            lastmove[0] = oldx;
+      lastmove[1] = oldy;
+    return;
+  }
+  if (yg < 30){
+      for (int i =0; i < 20; i++){
+        delay(5);
+        yg += 1;
+      }
+      oldy = 20;
+            lastmove[0] = oldx;
+      lastmove[1] = oldy;
+    return;
+  }
+  if (yg > 570){
+      for (int i =0; i < 20; i++){
+        delay(5);
+        yg -= 1;
+      }
+      oldy = -20;
+            lastmove[0] = oldx;
+      lastmove[1] = oldy;
+    return;
+  }
         if (x/20 < col-1 && grid[(yg/20)][(xg/20) + 1]){
           xg -= 20;
           oldx = -20;
@@ -81,46 +122,7 @@ void ghostmove(){
        }
     }
     else{
-      if (xg > 590){
-      for (int i =0; i < 20; i++){
-        delay(5);
-        xg -= 1;
-      }
-      oldx = -20;
-            lastmove[0] = oldx;
-      lastmove[1] = oldy;
-    return;
-  }
-  if (xg < 10){
-      for (int i =0; i < 20; i++){
-        delay(10);
-        xg += 1;
-      }
-      oldx = 20;
-            lastmove[0] = oldx;
-      lastmove[1] = oldy;
-    return;
-  }
-  if (yg < 10){
-      for (int i =0; i < 20; i++){
-        delay(5);
-        yg += 1;
-      }
-      oldy = 20;
-            lastmove[0] = oldx;
-      lastmove[1] = oldy;
-    return;
-  }
-  if (yg > 590){
-      for (int i =0; i < 20; i++){
-        delay(5);
-        yg -= 1;
-      }
-      oldy = -20;
-            lastmove[0] = oldx;
-      lastmove[1] = oldy;
-    return;
-  }
+
 //dfdfdfdfd
 //fix oldx and oldy, should be 20 not 4
   if (Math.random() <  .2){
