@@ -35,14 +35,40 @@ The issue lies within the 2d array used to store each node, and whether or not a
 Albert: Today, I made lastmove workable, and now we just have to implement it in World.
 I also fixed the ghost movement because there were some bugs. It would just stay in place, but now it actually moves. 
 
-5/29/19:
+5/29/19
 Derek: Created new grid, new pacman movement mechanics.
 Now, pacman is locked to the grid and cannot move outside the boundaries of the squares.
 Now, a boolean 2d array is used to access specific boxes and see whether or not it is a wall. 
 
-Albert: Today, 
+Albert: Today, I removed repetitive code and fixed the ghost so that it can actually move.
+Also, I tweaked the shape of the ghost so that it looks more like a ghost.
+Also, I took away probability in the ghost's movement because it caused errors.
 
-6/3/19:
+5/31/19
+Albert: Today, I made the ghost movement a lot smoother, and fixed the super random movement the ghost would do.
+It would always have spasms and jump everywhere, but now it's more controlled.
+Now, the ghost stays on the tiles.
+
+6/1/9:
+Albert: Today, I made the ghost go slower than pacman so that it doesn't make the game too hard. 
+I also fixed an error that stopped the ghost's movement.
+
+6/2/19
+Albert: I made it so that the ghost follows pacman under certain circumstances (same y value). 
+I also made the game less laggy because I changed the delay times. 
+Lastly, I created a pellet class and created the foundation.
+
+6/3/19
 Derek: Finally completed collision.
 Each tile was stored into a 2d boolean array and every time that pacman advances a square, it will check for collision.
 Albert finished pellet interaction, but when tweaking collision, the interaction was disrupted and now Pacman does not consume the pellets properly. We are looking for a fix.
+
+Albert: Today, I worked on the pellet class and made it so that Pacman can consume it.
+I also fixed some errors that conflicted with the walls and pellets.
+
+6/4/19
+Albert: Today, I fixed the code so that pacman consumes the pellets properly. 
+I incorporated losing/winning and it resets the map if you do so.
+I also finally made the ghost's random movement work and I also made it so that the ghost doesn't go into the wall. 
+I also made a quick fix which created arrayoutofbound exceptions.
+I also incorporated colors for the ghost and I added another ghost.
