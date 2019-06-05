@@ -1,9 +1,23 @@
 import java.util.*;
-int xg, yg, pelletX, pelletY;
+int xg, yg, xpink, ypink,pelletX, pelletY;
 int x;
 int y;
+boolean pisDead;
+  ghost gho = new ghost();
+  pacman pac = new pacman();
+int[] lastmove = new int[2];
+ int row = 30;
+ int col = 30;
+ boolean[][] grid = new boolean[row][col];
+ boolean[][] pellgrid = new boolean[row][col];
+ pellet pell = new pellet();
+ boolean noPellet = true;
+ pinkghost pgho = new pinkghost();
 void loseGame(){
   if (Math.abs(gho.getX() - pac.getX()) <= 20 && Math.abs(gho.getY() - pac.getY()) <= 20){
+    setup2();
+  }
+  if (Math.abs(pgho.getX() - pac.getX()) <= 20 && Math.abs(pgho.getY() - pac.getY()) <= 20){
     setup2();
   }
 }
@@ -24,7 +38,9 @@ void win(){
   x = 250;
   y = 250;
   xg = 250;
-  yg = 80;
+  yg = 70;
+  xpink = 70;
+  ypink = 250;
    for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       pellgrid[rows][columns] = true;
@@ -36,16 +52,6 @@ void win(){
   fill(0, 102, 153);
   delay(100);
 }
-boolean pisDead;
-  ghost gho = new ghost();
-  pacman pac = new pacman();
-int[] lastmove = new int[2];
- int row = 30;
- int col = 30;
- boolean[][] grid = new boolean[row][col];
- boolean[][] pellgrid = new boolean[row][col];
- pellet pell = new pellet();
- boolean noPellet = true;
 void setup(){
   size(600, 600);
   for (int rows = 0; rows < grid.length; rows++) {
@@ -63,6 +69,8 @@ void setup(){
   y = 250;
   xg = 250;
   yg = 70;
+  xpink = 70;
+  ypink = 250;
    for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       pellgrid[rows][columns] = true;
@@ -86,7 +94,9 @@ void setup2(){
   x = 250;
   y = 250;
   xg = 250;
-  yg = 80;
+  yg = 70;
+  xpink = 70;
+  ypink = 250;
    for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       pellgrid[rows][columns] = true;
@@ -135,6 +145,8 @@ void draw() {
   }
   gho.ghostSetup();
   gho.ghostmove();
+  pgho.ghostSetup();
+  pgho.ghostmove();
   pac.display();
   pac.move();
   loseGame();
