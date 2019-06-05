@@ -57,10 +57,20 @@ void setup(){
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       //each cell has a 20% chance of being an obstacle
-      if ((rows >= 10 && rows <= 20 && rows != 15 && rows != 16) || (columns >=10 && columns <= 17)  ){
-        grid[rows][columns] = false;
+      if ((rows == 0 || columns == 0 || rows == 29 || columns ==29) || 
+      (columns >= 3 && columns <= 12 && rows >= 20 & rows <= 26) || 
+      (columns >= 17 && columns <= 26 && rows >=20 && rows <= 26) || 
+      (columns >= 4 && columns <=10 && rows >=4 && rows <= 5) || 
+      (columns >= 4 && columns <= 5 && rows >=6 && rows <= 11) || 
+      (columns >=6 && columns <= 10 && rows >=10 && rows <= 11) || 
+      (columns >=19 && columns <=26 && rows >= 4 && rows <= 5) || 
+      (rows >=6 && rows <=8 && columns >=19 && columns <= 20) || 
+      (rows >=9 && rows <= 10 && columns >=19 && columns <= 26) ||
+      (rows >= 11 && rows <= 13 && columns >= 25 && columns <= 26) ||
+      (rows >= 14 && rows <= 15 && columns >= 19 && columns <= 26)){
+        grid[rows][columns] = true;
       }
-      else grid[rows][columns] = true;
+      else grid[rows][columns] = false;
     }
   }
   lastmove[0] = 0;
@@ -82,11 +92,20 @@ void setup2(){
   size(600, 600);
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
-      //each cell has a 20% chance of being an obstacle
-      if ((rows >= 10 && rows <= 20 && rows != 15 && rows != 16) || (columns >=10 && columns <= 17)  ){
-        grid[rows][columns] = false;
+      if ((rows == 0 || columns == 0 || rows == 29 || columns ==29) || 
+      (columns >= 3 && columns <= 12 && rows >= 20 & rows <= 26) || 
+      (columns >= 17 && columns <= 26 && rows >=20 && rows <= 26) || 
+      (columns >= 4 && columns <=10 && rows >=4 && rows <= 5) || 
+      (columns >= 4 && columns <= 5 && rows >=6 && rows <= 11) || 
+      (columns >=6 && columns <= 10 && rows >=10 && rows <= 11) || 
+      (columns >=19 && columns <=26 && rows >= 4 && rows <= 5) || 
+      (rows >=6 && rows <=8 && columns >=19 && columns <= 20) || 
+      (rows >=9 && rows <= 10 && columns >=19 && columns <= 26) ||
+      (rows >= 11 && rows <= 13 && columns >= 25 && columns <= 26) ||
+      (rows >= 14 && rows <= 15 && columns >= 19 && columns <= 26)){
+        grid[rows][columns] = true;
       }
-      else grid[rows][columns] = true;
+      else grid[rows][columns] = false;
     }
   }
   lastmove[0] = 0;
