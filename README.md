@@ -86,3 +86,5 @@ I incorporated losing/winning and it resets the map if you do so.
 I also finally made the ghost's random movement work and I also made it so that the ghost doesn't go into the wall. 
 I also made a quick fix which created arrayoutofbound exceptions.
 I also incorporated colors for the ghost and I added another ghost.
+Derek: Today, I changed the map.
+I edited the map so that it spells out CS and there is a bit a manuverability for pacman to move around the map.
