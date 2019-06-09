@@ -1,4 +1,5 @@
 import java.util.*;
+PImage world;
 int xg, yg, xpink, ypink,pelletX, pelletY;
 int x;
 int y;
@@ -6,8 +7,8 @@ boolean pisDead;
   ghost gho = new ghost();
   pacman pac = new pacman();
 int[] lastmove = new int[2];
- int row = 30;
- int col = 30;
+ int row = 50;
+ int col = 50;
  boolean[][] grid = new boolean[row][col];
  boolean[][] pellgrid = new boolean[row][col];
  pellet pell = new pellet();
@@ -53,10 +54,11 @@ void win(){
   delay(100);
 }
 void setup(){
-  size(600, 600);
+  size(1000, 1000);
+  world = loadImage("pacworld.png");
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
-      //each cell has a 20% chance of being an obstacle
+      /*//each cell has a 20% chance of being an obstacle
       if ((rows == 0 || columns == 0 || rows == 29 || columns ==29) || 
       (columns >= 3 && columns <= 12 && rows >= 20 & rows <= 26) || 
       (columns >= 17 && columns <= 26 && rows >=20 && rows <= 26) || 
@@ -70,9 +72,14 @@ void setup(){
       (rows >= 14 && rows <= 15 && columns >= 19 && columns <= 26)){
         grid[rows][columns] = true;
       }
+      */
+      if (rows == 20 && columns == 20){
+        grid[rows][columns] = true;
+      }
       else grid[rows][columns] = false;
     }
   }
+  
   lastmove[0] = 0;
   lastmove[1] = 20;
   x = 250;
@@ -89,7 +96,7 @@ void setup(){
 }
 
 void setup2(){
-  size(600, 600);
+  size(1000, 1000);
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       if ((rows == 0 || columns == 0 || rows == 29 || columns ==29) || 
@@ -129,6 +136,7 @@ void setup2(){
 }
 void draw() {
     background(0,0,0);
+    image(world, 0,0);
   for (int r = 0; r < row; r++) {
     for (int c = 0; c < col; c++) {
 
@@ -138,16 +146,12 @@ void draw() {
       //fill the obstacles in with blue
       if (grid[r][c]) {
         fill(0,0,255);
+        rect(cellX, cellY, 20, 20);
       }
-      else {
-        fill(0,0,0);
-      }
-
-      rect(cellX, cellY, 20, 20);
     }
   }
 
-  for (int rows = 0; rows < grid.length; rows++) {
+ /* for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       if (columns * 20 + 10 == pac.getX() && rows * 20 + 10 == pac.getY() ){
         pellgrid[rows][columns] = false;
@@ -162,6 +166,7 @@ void draw() {
     //maybe make a setup2 for a harder level...
     setup();
   }
+  */
   gho.ghostSetup();
   gho.ghostmove();
   pgho.ghostSetup();
