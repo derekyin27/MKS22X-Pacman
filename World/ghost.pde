@@ -9,7 +9,7 @@ int getY(){
 }
 void ghostmove(){
 
-
+  if (!power){
 
      int oldx = 0;
     int oldy = 0;
@@ -136,7 +136,6 @@ void ghostmove(){
     }
     else{
 
-//dfdfdfdfd
 //fix oldx and oldy, should be 20 not 4
   if (Math.random() <  .2){
     Random rand = new Random();
@@ -196,9 +195,14 @@ void ghostmove(){
     }
       lastmove[0] = oldx;
       lastmove[1] = oldy;
+      }
   }
   void ghostSetup(){
-   fill(127,0,0);
+    if (!power){
+    fill(127,0,0);
+    }else{
+      fill(255,255,255);
+    }
    //find good coords later
    int[] lastmove = new int[2];
    lastmove[0] = 0;

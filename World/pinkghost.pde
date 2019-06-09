@@ -9,7 +9,7 @@ int getY(){
 }
 void ghostmove(){
 
-
+if (!power){
 
      int oldx = 0;
     int oldy = 0;
@@ -197,8 +197,14 @@ void ghostmove(){
       lastmove[0] = oldx;
       lastmove[1] = oldy;
   }
+  }
   void ghostSetup(){
-   fill(255,200,200);
+        if (!power){
+    fill(255,200,200);
+    }else{
+      fill(255,255,255);
+    }
+
    //find good coords later
    int[] lastmove = new int[2];
    lastmove[0] = 0;

@@ -2,9 +2,18 @@ import java.util.*;
 int xg, yg, xpink, ypink,pelletX, pelletY;
 int x;
 int y;
+int ghostscore = 0;
+scaredghost scared = new scaredghost();
+int powtime = 0;
+//changge counte rlater to 0.
+int counter;
+boolean ghostdead = false;
+boolean pghostdead = false;
 int numpell = 0;
 int numpell2 = 0;
+powerup pow = new powerup();
 boolean pisDead;
+boolean power = false;
   ghost gho = new ghost();
   pacman pac = new pacman();
 int[] lastmove = new int[2];
@@ -15,16 +24,50 @@ int[] lastmove = new int[2];
  pellet pell = new pellet();
  boolean noPellet = true;
  pinkghost pgho = new pinkghost();
+ boolean startpowtime = false;
+  int gcounter = 50;
+  int pgcounter = 50;
 void loseGame(){
   if (Math.abs(gho.getX() - pac.getX()) <= 15 && Math.abs(gho.getY() - pac.getY()) <= 15){
-    setup2();
+    if (!ghostdead){
+      if (!power){
+        setup2();
+      }else{
+        gcounter = 0;
+        ghostscore += 10;
+      }
+    }
   }
   if (Math.abs(pgho.getX() - pac.getX()) <= 15 && Math.abs(pgho.getY() - pac.getY()) <= 15){
-    setup2();
+    if (!pghostdead){
+      if (!power){
+        setup2();
+      }else{
+        pgcounter = 0;
+        ghostscore += 10;
+      }
+    }
   }
 }
 
+
+
 void win(){
+  ghostscore = 0;
+
+powtime = 0;
+//changge counte rlater to 0.
+counter = 0;
+ghostdead = false;
+pghostdead = false;
+numpell = 0;
+ numpell2 = 0;
+ power = false;
+ noPellet = true;
+ pinkghost pgho = new pinkghost();
+ startpowtime = false;
+ gcounter = 50;
+ pgcounter = 50;
   numpell = 0;
     size(600, 600);
   for (int rows = 0; rows < grid.length; rows++) {
@@ -57,6 +100,21 @@ void win(){
   delay(100);
 }
 void setup(){
+    ghostscore = 0;
+
+powtime = 0;
+//changge counte rlater to 0.
+counter = 0;
+ghostdead = false;
+pghostdead = false;
+numpell = 0;
+ numpell2 = 0;
+ power = false;
+ noPellet = true;
+ pinkghost pgho = new pinkghost();
+ startpowtime = false;
+ gcounter = 50;
+ pgcounter = 50;
   numpell = 0;
   size(600, 600);
   for (int rows = 0; rows < grid.length; rows++) {
@@ -85,6 +143,21 @@ void setup(){
 }
 
 void setup2(){
+    ghostscore = 0;
+
+powtime = 0;
+//changge counte rlater to 0.
+counter = 0;
+ghostdead = false;
+pghostdead = false;
+numpell = 0;
+ numpell2 = 0;
+ power = false;
+ noPellet = true;
+ pinkghost pgho = new pinkghost();
+ startpowtime = false;
+ gcounter = 50;
+ pgcounter = 50;
   numpell = 0;
   size(600, 600);
   for (int rows = 0; rows < grid.length; rows++) {
@@ -117,6 +190,13 @@ void setup2(){
   delay(50);
 }
 void draw() {
+  if (power || pghostdead || ghostdead){
+    delay(70);
+  }
+  if (x == 290 && y == 290 && counter > 100){
+    power = true;
+    counter = 0;
+  }
   numpell2 = 0;
     background(0,0,0);
   for (int r = 0; r < row; r++) {
@@ -153,18 +233,42 @@ void draw() {
     //maybe make a setup2 for a harder level...
     win();
   }
-  int score = Math.abs(numpell - numpell2);
+  int score = Math.abs(numpell - numpell2) + ghostscore;
   textSize(60);
 
   text(score , 50, 200);
 
   fill(0, 102, 153);
+  if (counter > 100){
+    pow.display();
+  }else{
+    if (powtime > 50){
+      power = false;
+      powtime = 0;
+    }
+  }
+  if(power){
+  powtime++;
+}
+counter++;
     loseGame();
+    if (gcounter > 40){
   gho.ghostSetup();
   gho.ghostmove();
+  ghostdead = false;
+    }else{
+      gcounter++;
+      ghostdead = true;
+    }
     loseGame();
+    if (pgcounter > 40){
   pgho.ghostSetup();
   pgho.ghostmove();
+  pghostdead = false;
+    }else{
+      pgcounter++;
+      pghostdead = true;
+    }
   pac.display();
   pac.move();
   loseGame();
