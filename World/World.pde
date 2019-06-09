@@ -28,7 +28,7 @@ int[] lastmove = new int[2];
   int gcounter = 50;
   int pgcounter = 50;
 void loseGame(){
-  if (Math.abs(gho.getX() - pac.getX()) <= 15 && Math.abs(gho.getY() - pac.getY()) <= 15){
+  if (Math.abs(gho.getX() - pac.getX()) <= 5 && Math.abs(gho.getY() - pac.getY()) <= 5){
     if (!ghostdead){
       if (!power){
         setup2();
@@ -38,7 +38,7 @@ void loseGame(){
       }
     }
   }
-  if (Math.abs(pgho.getX() - pac.getX()) <= 15 && Math.abs(pgho.getY() - pac.getY()) <= 15){
+  if (Math.abs(pgho.getX() - pac.getX()) <= 5 && Math.abs(pgho.getY() - pac.getY()) <= 5){
     if (!pghostdead){
       if (!power){
         setup2();
@@ -72,12 +72,12 @@ numpell = 0;
     size(600, 600);
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
-      //each cell has a 20% chance of being an obstacle
       if ((rows >= 10 && rows <= 20 && rows != 15 && rows != 16) || (columns >=10 && columns <= 17)  ){
         grid[rows][columns] = false;
         numpell++;
       }
-      else grid[rows][columns] = true;
+      
+        else grid[rows][columns] = true;
     }
   }
   lastmove[0] = 0;
@@ -116,15 +116,26 @@ numpell = 0;
  gcounter = 50;
  pgcounter = 50;
   numpell = 0;
-  size(600, 600);
+  size(600,600);
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       //each cell has a 20% chance of being an obstacle
-      if ((rows >= 10 && rows <= 20 && rows != 15 && rows != 16) || (columns >=10 && columns <= 17)  ){
+      if ((rows == 29 || columns == 29 || rows == 0 || columns == 0) ||
+      (rows >= 23 && rows <=24 && (columns == 1 || columns == 2))||
+      (rows >= 23 && rows <= 24&& (columns == 27 || columns == 28))||
+      (rows >= 26 && rows <= 27 && columns >= 2 && columns <= 11)||
+      (rows >= 26 && rows <= 27 && columns >= 18 && columns <= 27)||
+      (rows >= 24 && rows <= 25 && columns >= 4 && columns <= 5) || 
+      (rows >=24 && rows <= 25 && columns >= 24 && columns <= 25) ||
+      (rows >= 23 && rows <= 24 && columns >= 13 && columns <= 16)||
+      (rows >= 25 && rows <= 27 && columns >= 14 && columns <= 15))
+      {
+        grid[rows][columns] = true;
+      }
+       else{
         grid[rows][columns] = false;
         numpell++;
       }
-      else grid[rows][columns] = true;
     }
   }
   lastmove[0] = 0;
@@ -184,8 +195,7 @@ numpell = 0;
     }
   }
   textSize(60);
-  text("YOU LOSE!!!", 50, 200);
-
+  text("Game Over", 100, 300);
   fill(0, 102, 153);
   delay(50);
 }
@@ -234,9 +244,9 @@ void draw() {
     win();
   }
   int score = Math.abs(numpell - numpell2) + ghostscore;
-  textSize(60);
+  textSize(20);
 
-  text(score , 50, 200);
+  text(score , 50, 50);
 
   fill(0, 102, 153);
   if (counter > 100){
