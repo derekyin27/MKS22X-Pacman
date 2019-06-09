@@ -15,83 +15,83 @@ void ghostmove(){
     int oldy = 0;
 
           if (xg > 570){
-      for (int i =0; i < 20; i++){
+      for (int i =0; i < 10; i++){
         delay(3);
         xg -= 1;
       }
-      oldx = -20;
+      oldx = -10;
             lastmove[0] = oldx;
       lastmove[1] = oldy;
     return;
   }
   if (xg < 30){
-      for (int i =0; i < 20; i++){
+      for (int i =0; i < 10; i++){
         delay(3);
         xg += 1;
       }
-      oldx = 20;
+      oldx = 10;
             lastmove[0] = oldx;
       lastmove[1] = oldy;
     return;
   }
   if (yg < 30){
-      for (int i =0; i < 20; i++){
+      for (int i =0; i < 10; i++){
         delay(3);
         yg += 1;
       }
-      oldy = 20;
+      oldy = 10;
             lastmove[0] = oldx;
       lastmove[1] = oldy;
     return;
   }
   if (yg > 570){
-      for (int i =0; i < 20; i++){
+      for (int i =0; i < 10; i++){
         delay(3);
         yg -= 1;
       }
-      oldy = -20;
+      oldy = -10;
             lastmove[0] = oldx;
       lastmove[1] = oldy;
     return;
   }
         if (x/20 < col-1 && grid[(yg/20)][(xg/20) + 1]){
-          for (int i =0; i < 20; i++){
+          for (int i =0; i < 10; i++){
             delay(3);
             xg -= 1;
           }
-          oldx = -20;
+          oldx = -10;
           lastmove[0] = oldx;
           lastmove[1] = oldy;
           return;
         }
         if (x/20 > 0 && grid[(yg/20)][(xg/20) - 1]){
-          for (int i =0; i < 20; i++){
+          for (int i =0; i < 10; i++){
             delay(3);
             xg += 1;
           }
-          oldx = 20;
+          oldx = 10;
           lastmove[0] = oldx;
           lastmove[1] = oldy;
           return;
         }
         if (yg/20 > 0 && grid[(yg/20) - 1][(xg/20)]){
-          for (int i =0; i < 20; i++){
+          for (int i =0; i < 10; i++){
             delay(3);
             yg += 1;
           }
-          oldy = 20;
+          oldy = 10;
           lastmove[0] = oldx;
           lastmove[1] = oldy;
           return;
 
         }
         if (yg/20 < row-1 && grid[(yg/20) + 1][(xg/20)]){
-          for (int i =0; i < 20; i++){
+          for (int i =0; i < 10; i++){
             delay(3);
             yg -= 1;
           }
 
-          oldy = -20;
+          oldy = -10;
           lastmove[0] = oldx;
           lastmove[1] = oldy;
           return;
@@ -103,35 +103,35 @@ void ghostmove(){
     //print out.. tst it
     if (yg == y){
      if (xg < (x)){
-      for (int i =0; i < 20; i++){
+      for (int i =0; i < 10; i++){
         delay(3);
         xg += 1;
       }
-      oldx = 20;
+      oldx = 10;
      }
      else{
-      for (int i =0; i < 20; i++){
+      for (int i =0; i < 10; i++){
         delay(3);
         xg-=1;
       }
-       oldx = -20;
+       oldx = -10;
      }
     }
     else if(xg == x){
      if (yg < (y)){
-      for (int i =0; i < 20; i++){
+      for (int i =0; i < 10; i++){
         delay(3);
         yg += 1;
       }
-      oldy = 20;
+      oldy = 10;
      }
      else{
-      for (int i =0; i < 20; i++){
+      for (int i =0; i < 10; i++){
         delay(3);
         //Swithcd up,, test it out
         yg -= 1;
       }
-       oldy = -20;
+       oldy = -10;
        }
     }
     else{
@@ -143,48 +143,48 @@ void ghostmove(){
     int n = rand.nextInt(4);
     if (n == 0){
 
-        for (int i =0; i < 20; i++){
+        for (int i =0; i < 10; i++){
         delay(3);
         xg -= 1;
         }
-        oldx = -20;
+        oldx = -10;
       //switch up the numbrs..
       /*
         }*/
     }
     if (n == 1){
-       for (int i =0; i < 20; i++){
+       for (int i =0; i < 10; i++){
         delay(3);
        yg += 1;
        }
-       oldy = 20;
+       oldy = 10;
       /*
         }*/
     }
     if (n == 2){
-      for (int i =0; i < 20; i++){
+      for (int i =0; i < 10; i++){
         delay(3);
         yg -= 1;
       }
-      oldy = -20;
+      oldy = -10;
       /*
         }*/
     }
     if (n == 3){
 
-      for (int i =0; i < 20; i++){
+      for (int i =0; i < 10; i++){
         delay(3);
       xg += 1;
       }
-      oldx = 20;
+      oldx = 10;
       /*
 */
     }
   }
     else{
-       int divx = lastmove[0] / 20;
-       int divy = lastmove[1] / 20;
-        for (int i = 0; i < 20; i++){
+       int divx = lastmove[0] / 10;
+       int divy = lastmove[1] / 10;
+        for (int i = 0; i < 10; i++){
           delay(3);
           yg += divy;
           xg += divx;
