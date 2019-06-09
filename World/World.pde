@@ -82,8 +82,8 @@ numpell = 0;
   }
   lastmove[0] = 0;
   lastmove[1] = 20;
-  x = 250;
-  y = 250;
+  x = 475;
+  y = 325;
   xg = 250;
   yg = 70;
   xpink = 70;
@@ -120,7 +120,7 @@ numpell = 0;
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       //each cell has a 20% chance of being an obstacle
-      if (((rows == 29 || columns == 29 || rows == 0 || columns == 0)) && (rows != 14 && rows !=15) ||
+      if (((rows == 29 || columns == 29 || rows == 0 || columns == 0) && (rows != 14 && rows !=15)) ||
       (rows >= 23 && rows <=24 && (columns == 1 || columns == 2))||
       (rows >= 23 && rows <= 24&& (columns == 27 || columns == 28))||
       (rows >= 26 && rows <= 27 && columns >= 2 && columns <= 11)||
@@ -169,8 +169,8 @@ numpell = 0;
   }
   lastmove[0] = 0;
   lastmove[1] = 20;
-  x = 250;
-  y = 250;
+  x = 310;
+  y = 450;
   xg = 300;
   yg = 300;
   xpink = 70;
