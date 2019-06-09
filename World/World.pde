@@ -120,7 +120,7 @@ numpell = 0;
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       //each cell has a 20% chance of being an obstacle
-      if ((rows == 29 || columns == 29 || rows == 0 || columns == 0) ||
+      if (((rows == 29 || columns == 29 || rows == 0 || columns == 0)) && (rows != 14 && rows !=15) ||
       (rows >= 23 && rows <=24 && (columns == 1 || columns == 2))||
       (rows >= 23 && rows <= 24&& (columns == 27 || columns == 28))||
       (rows >= 26 && rows <= 27 && columns >= 2 && columns <= 11)||
