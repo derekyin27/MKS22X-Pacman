@@ -2,6 +2,7 @@ import java.util.*;
 int xg, yg, xpink, ypink,pelletX, pelletY;
 int x;
 int y;
+int lastKeyPressed = 0;
 int ghostscore = 0;
 scaredghost scared = new scaredghost();
 int powtime = 0;
@@ -351,29 +352,25 @@ counter++;
   pac.move();
   loseGame();
 }
-/*void keyPressed(){
+void keyPressed(){
 if (key == 'w'){
   if (y/20 > 0 && !grid[(y/20)-1][x/20]){
     y-=20;
   }
 }
 if (key == 's'){
-  println(x + " " + y);
   if (y/20 < row-1 && !grid[(y/20)+1][x/20]){
     y+=20;
   }
 }
 if (key == 'a'){
-  println(x + " " + y);
   if (x/20 > 0 && !grid[y/20][(x/20)-1]){
     x-=20;
   }
 }
 if (key == 'd'){
-  println(x + " " + y);
   if (x/20 < col-1 && !grid[y/20][(x/20)+1]){
     x+=20;
   }
 }
 }
-*/
