@@ -53,6 +53,16 @@ void ghostmove(){
           }
           return;
         }
+                                             //if crash into +y
+        if (!(ypink/20 < row-1 && grid[(ypink/20) + 1][(xpink/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            ypink += 1;
+          }
+
+
+          return;
+        }
 
                       //if crash into -y
         if (!(ypink/20 > 0 && grid[(ypink/20) - 1][(xpink/20)])){
@@ -75,16 +85,6 @@ void ghostmove(){
           return;
         }
 
-                                     //if crash into +y
-        if (!(ypink/20 < row-1 && grid[(ypink/20) + 1][(xpink/20)])){
-          for (int i =0; i < 20; i++){
-            delay(1);
-            ypink += 1;
-          }
-
-
-          return;
-        }
 
 
 
@@ -99,16 +99,6 @@ void ghostmove(){
 
           return;
         }
-              //if crash into -y
-        if (!(ypink/20 > 0 && grid[(ypink/20) - 1][(xpink/20)])){
-          for (int i =0; i < 20; i++){
-            delay(1);
-            ypink -= 1;
-          }
-
-          return;
-
-        }
 
                    //if  going to crash into +X
         if (!(x/20 < col-1 && grid[(ypink/20)][(xpink/20) + 1])){
@@ -118,13 +108,23 @@ void ghostmove(){
           }
           return;
         }
+            //if crash into -y
+        if (!(ypink/20 > 0 && grid[(ypink/20) - 1][(xpink/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            ypink -= 1;
+          }
 
+          return;
+
+        }
                                         //if crash into +y
         if (!(ypink/20 < row-1 && grid[(ypink/20) + 1][(xpink/20)])){
           for (int i =0; i < 20; i++){
             delay(1);
             ypink += 1;
           }
+
 
 
           return;
@@ -141,6 +141,14 @@ void ghostmove(){
           }
 
 
+          return;
+        }
+                   //if  going to crash into +X
+        if (!(x/20 < col-1 && grid[(ypink/20)][(xpink/20) + 1])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            xpink += 1;
+          }
           return;
         }
                 //if crash into -y
@@ -160,14 +168,6 @@ void ghostmove(){
             xpink -= 1;
           }
 
-          return;
-        }
-           //if  going to crash into +X
-        if (!(x/20 < col-1 && grid[(ypink/20)][(xpink/20) + 1])){
-          for (int i =0; i < 20; i++){
-            delay(1);
-            xpink += 1;
-          }
           return;
         }
 
@@ -188,7 +188,7 @@ void ghostmove(){
           return;
 
         }
-                //if crash into -X
+                        //if crash into -X
         if (!(x/20 > 0 && grid[(ypink/20)][(xpink/20) - 1])){
           for (int i =0; i < 20; i++){
             delay(1);
@@ -197,7 +197,7 @@ void ghostmove(){
 
           return;
         }
-           //if  going to crash into +X
+                //if  going to crash into +X
         if (!(x/20 < col-1 && grid[(ypink/20)][(xpink/20) + 1])){
           for (int i =0; i < 20; i++){
             delay(1);
@@ -217,6 +217,8 @@ void ghostmove(){
 
           return;
         }
+
+
       }
 
 

@@ -108,14 +108,7 @@ void ghostmove(){
           }
           return;
         }
-
-                                        //if crash into +y
-        if (!(ygreen/20 < row-1 && grid[(ygreen/20) + 1][(xgreen/20)])){
-          for (int i =0; i < 20; i++){
-            delay(1);
-            ygreen += 1;
-          }
-              //if crash into -y
+            //if crash into -y
         if (!(ygreen/20 > 0 && grid[(ygreen/20) - 1][(xgreen/20)])){
           for (int i =0; i < 20; i++){
             delay(1);
@@ -125,6 +118,13 @@ void ghostmove(){
           return;
 
         }
+                                        //if crash into +y
+        if (!(ygreen/20 < row-1 && grid[(ygreen/20) + 1][(xgreen/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            ygreen += 1;
+          }
+
 
 
           return;
@@ -188,6 +188,15 @@ void ghostmove(){
           return;
 
         }
+                        //if crash into -X
+        if (!(x/20 > 0 && grid[(ygreen/20)][(xgreen/20) - 1])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            xgreen -= 1;
+          }
+
+          return;
+        }
                 //if  going to crash into +X
         if (!(x/20 < col-1 && grid[(ygreen/20)][(xgreen/20) + 1])){
           for (int i =0; i < 20; i++){
@@ -208,15 +217,7 @@ void ghostmove(){
 
           return;
         }
-                //if crash into -X
-        if (!(x/20 > 0 && grid[(ygreen/20)][(xgreen/20) - 1])){
-          for (int i =0; i < 20; i++){
-            delay(1);
-            xgreen -= 1;
-          }
 
-          return;
-        }
 
       }
 
@@ -229,7 +230,7 @@ void ghostmove(){
   }
   void ghostSetup(){
     if (!power){
-fill(0, 255, 0);
+fill(0,255,0);
     }else{
       fill(255,255,255);
     }

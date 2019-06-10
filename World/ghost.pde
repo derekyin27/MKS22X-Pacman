@@ -108,14 +108,7 @@ void ghostmove(){
           }
           return;
         }
-
-                                        //if crash into +y
-        if (!(yg/20 < row-1 && grid[(yg/20) + 1][(xg/20)])){
-          for (int i =0; i < 20; i++){
-            delay(1);
-            yg += 1;
-          }
-              //if crash into -y
+            //if crash into -y
         if (!(yg/20 > 0 && grid[(yg/20) - 1][(xg/20)])){
           for (int i =0; i < 20; i++){
             delay(1);
@@ -125,6 +118,13 @@ void ghostmove(){
           return;
 
         }
+                                        //if crash into +y
+        if (!(yg/20 < row-1 && grid[(yg/20) + 1][(xg/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            yg += 1;
+          }
+
 
 
           return;
@@ -188,6 +188,15 @@ void ghostmove(){
           return;
 
         }
+                        //if crash into -X
+        if (!(x/20 > 0 && grid[(yg/20)][(xg/20) - 1])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            xg -= 1;
+          }
+
+          return;
+        }
                 //if  going to crash into +X
         if (!(x/20 < col-1 && grid[(yg/20)][(xg/20) + 1])){
           for (int i =0; i < 20; i++){
@@ -208,15 +217,7 @@ void ghostmove(){
 
           return;
         }
-                //if crash into -X
-        if (!(x/20 > 0 && grid[(yg/20)][(xg/20) - 1])){
-          for (int i =0; i < 20; i++){
-            delay(1);
-            xg -= 1;
-          }
 
-          return;
-        }
 
       }
 
