@@ -1,5 +1,5 @@
 # Description
-We recreated the game Pacman using Java and Processing. We've implemented most of its features, with 2 ghosts on the map. To control pacman, use WASD, with W going up, A going left, S going down, and D going right. The goal of the game is to eat all of the pellets before the ghosts kill you. Have fun!
+We recreated the game Pacman using Java and Processing. We've implemented most of its features, with 3 ghosts on the map. To control pacman, use WASD, with W going up, A going left, S going down, and D going right. You can consume the power-up and kill the ghosts. The goal of the game is to eat all of the pellets before the ghosts kill you. Have fun!
 
 # Development Log
 5/20/19
@@ -86,5 +86,19 @@ I incorporated losing/winning and it resets the map if you do so.
 I also finally made the ghost's random movement work and I also made it so that the ghost doesn't go into the wall. 
 I also made a quick fix which created arrayoutofbound exceptions.
 I also incorporated colors for the ghost and I added another ghost.
+
 Derek: Today, I changed the map.
 I edited the map so that it spells out CS and there is a bit a manuverability for pacman to move around the map.
+
+6/8/19
+
+Derek: We got an extension so I added an external map and worked on the pacman's movement.
+
+Albert: Today, I made a powerup that allows the pacman to kill the ghost in a certain amount of time. 
+Also, I fixed the ghost's choppy movement and it's a lot smoother now.
+
+6/9/19
+
+Derek: Today, I scrapped the external map and created a map myself that looks exactly like the one in pacman.
+
+Albert: Today, I added another ghost and made fixed all the errors from the new map.
