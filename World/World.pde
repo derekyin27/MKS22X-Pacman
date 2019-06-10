@@ -1,8 +1,8 @@
 import java.util.*;
-int xg, yg, xpink, ypink,pelletX, pelletY;
+int ghostcounter;
+int xg, yg, xpink, ypink,pelletX, pelletY, xgreen, ygreen;
 int x;
 int y;
-int lastKeyPressed = 0;
 int ghostscore = 0;
 scaredghost scared = new scaredghost();
 int powtime = 0;
@@ -10,6 +10,7 @@ int powtime = 0;
 int counter;
 boolean ghostdead = false;
 boolean pghostdead = false;
+boolean gghostdead = false;
 int numpell = 0;
 int numpell2 = 0;
 powerup pow = new powerup();
@@ -25,11 +26,13 @@ int[] lastmove = new int[2];
  pellet pell = new pellet();
  boolean noPellet = true;
  pinkghost pgho = new pinkghost();
+ greenghost ggho = new greenghost();
  boolean startpowtime = false;
   int gcounter = 50;
   int pgcounter = 50;
+  int ggcounter = 50;
 void loseGame(){
-  if (Math.abs(gho.getX() - pac.getX()) <= 5 && Math.abs(gho.getY() - pac.getY()) <= 5){
+  if (Math.abs(gho.getX() - pac.getX()) <= 20 && Math.abs(gho.getY() - pac.getY()) <= 20){
     if (!ghostdead){
       if (!power){
         setup2();
@@ -39,7 +42,7 @@ void loseGame(){
       }
     }
   }
-  if (Math.abs(pgho.getX() - pac.getX()) <= 5 && Math.abs(pgho.getY() - pac.getY()) <= 5){
+  if (Math.abs(pgho.getX() - pac.getX()) <= 20 && Math.abs(pgho.getY() - pac.getY()) <= 20){
     if (!pghostdead){
       if (!power){
         setup2();
@@ -49,11 +52,22 @@ void loseGame(){
       }
     }
   }
+  if (Math.abs(ggho.getX() - pac.getX()) <= 20 && Math.abs(ggho.getY() - pac.getY()) <= 20){
+    if (!gghostdead){
+      if (!power){
+        setup2();
+      }else{
+        ggcounter = 0;
+        ghostscore += 10;
+      }
+    }
+  }
 }
 
 
 
 void win(){
+  ghostcounter =0;
   ghostscore = 0;
 
 powtime = 0;
@@ -61,6 +75,7 @@ powtime = 0;
 counter = 0;
 ghostdead = false;
 pghostdead = false;
+gghostdead = false;
 numpell = 0;
  numpell2 = 0;
  power = false;
@@ -69,6 +84,7 @@ numpell = 0;
  startpowtime = false;
  gcounter = 50;
  pgcounter = 50;
+ ggcounter = 50;
   numpell = 0;
     size(600, 600);
   for (int rows = 0; rows < grid.length; rows++) {
@@ -77,7 +93,7 @@ numpell = 0;
         grid[rows][columns] = false;
         numpell++;
       }
-      
+
         else grid[rows][columns] = true;
     }
   }
@@ -89,6 +105,8 @@ numpell = 0;
   yg = 70;
   xpink = 70;
   ypink = 250;
+  xgreen = 170;
+  ygreen = 570;
    for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       pellgrid[rows][columns] = true;
@@ -101,6 +119,7 @@ numpell = 0;
   delay(100);
 }
 void setup(){
+  ghostcounter =0;
     ghostscore = 0;
 
 powtime = 0;
@@ -108,6 +127,7 @@ powtime = 0;
 counter = 0;
 ghostdead = false;
 pghostdead = false;
+gghostdead = false;
 numpell = 0;
  numpell2 = 0;
  power = false;
@@ -116,6 +136,7 @@ numpell = 0;
  startpowtime = false;
  gcounter = 50;
  pgcounter = 50;
+ ggcounter = 50;
   numpell = 0;
   size(600,600);
   for (int rows = 0; rows < grid.length; rows++) {
@@ -126,7 +147,7 @@ numpell = 0;
       (rows >= 23 && rows <= 24&& (columns == 27 || columns == 28))||
       (rows >= 26 && rows <= 27 && columns >= 2 && columns <= 11)||
       (rows >= 26 && rows <= 27 && columns >= 18 && columns <= 27)||
-      (rows >= 23 && rows <= 25 && columns >= 7 && columns <= 10) || 
+      (rows >= 23 && rows <= 25 && columns >= 7 && columns <= 10) ||
       (rows >=23 && rows <= 25 && columns >= 19 && columns <= 22) ||
       (rows >= 23 && rows <= 24 && columns >= 12 && columns <= 17)||
       (rows >= 25 && rows <= 27 && columns >= 13 && columns <= 16) ||
@@ -134,13 +155,13 @@ numpell = 0;
       (rows >= 22 && rows <= 24 && columns >= 4 && columns <= 5)||
       (rows >= 22 && rows <= 24 && columns >=24 && columns <= 25) ||
       (rows >= 20 && rows <= 21 && columns >=24 && columns <= 27) ||
-      (rows >= 20 && rows <= 21 && columns >=7 && columns <= 11) || 
+      (rows >= 20 && rows <= 21 && columns >=7 && columns <= 11) ||
       (rows >= 20 && rows <= 21 && columns >=18 && columns <= 22) ||
       (rows >= 5 && rows <=6 && (columns == 1 || columns == 2))||
       (rows >= 5 && rows <= 6 && (columns == 27 || columns == 28))||
       (rows >= 2 && rows <= 3 && columns >= 2 && columns <= 11)||
       (rows >= 2 && rows <= 3 && columns >= 18 && columns <= 27)||
-      (rows >= 4 && rows <= 6 && columns >= 7 && columns <= 10) || 
+      (rows >= 4 && rows <= 6 && columns >= 7 && columns <= 10) ||
       (rows >=4 && rows <= 6 && columns >= 19 && columns <= 22) ||
       (rows >= 5 && rows <= 6 && columns >= 12 && columns <= 17)||
       (rows >= 2 && rows <= 3 && columns >= 13 && columns <= 16) ||
@@ -148,7 +169,7 @@ numpell = 0;
       (rows >= 5 && rows <= 7 && columns >= 4 && columns <= 5)||
       (rows >= 5 && rows <= 7 && columns >=24 && columns <= 25) ||
       (rows >= 8 && rows <= 9 && columns >=24 && columns <= 27) ||
-      (rows >= 8 && rows <= 9 && columns >=7 && columns <= 11) || 
+      (rows >= 8 && rows <= 9 && columns >=7 && columns <= 11) ||
       (rows >= 8 && rows <= 9 && columns >=18 && columns <= 22) ||
       (rows >= 8 && rows <= 21 && rows != 14 && rows != 15 && columns >=13 && columns <= 16) ||
       (rows >= 11 && rows <= 13 && columns >=2 && columns <= 5)||
@@ -172,10 +193,12 @@ numpell = 0;
   lastmove[1] = 20;
   x = 310;
   y = 450;
-  xg = 300;
-  yg = 300;
-  xpink = 300;
-  ypink = 300;
+  xg = 310;
+  yg = 310;
+  xpink = 370;
+  ypink = 90;
+    xgreen = 170;
+  ygreen = 570;
    for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       pellgrid[rows][columns] = true;
@@ -184,6 +207,7 @@ numpell = 0;
 }
 
 void setup2(){
+  ghostcounter =0;
     ghostscore = 0;
 
 powtime = 0;
@@ -191,6 +215,7 @@ powtime = 0;
 counter = 0;
 ghostdead = false;
 pghostdead = false;
+gghostdead = false;
 numpell = 0;
  numpell2 = 0;
  power = false;
@@ -199,6 +224,7 @@ numpell = 0;
  startpowtime = false;
  gcounter = 50;
  pgcounter = 50;
+ ggcounter = 50;
   numpell = 0;
   size(600, 600);
   for (int rows = 0; rows < grid.length; rows++) {
@@ -208,7 +234,7 @@ numpell = 0;
       (rows >= 23 && rows <= 24&& (columns == 27 || columns == 28))||
       (rows >= 26 && rows <= 27 && columns >= 2 && columns <= 11)||
       (rows >= 26 && rows <= 27 && columns >= 18 && columns <= 27)||
-      (rows >= 23 && rows <= 25 && columns >= 7 && columns <= 10) || 
+      (rows >= 23 && rows <= 25 && columns >= 7 && columns <= 10) ||
       (rows >=23 && rows <= 25 && columns >= 19 && columns <= 22) ||
       (rows >= 23 && rows <= 24 && columns >= 12 && columns <= 17)||
       (rows >= 25 && rows <= 27 && columns >= 13 && columns <= 16) ||
@@ -216,13 +242,13 @@ numpell = 0;
       (rows >= 22 && rows <= 24 && columns >= 4 && columns <= 5)||
       (rows >= 22 && rows <= 24 && columns >=24 && columns <= 25) ||
       (rows >= 20 && rows <= 21 && columns >=24 && columns <= 27) ||
-      (rows >= 20 && rows <= 21 && columns >=7 && columns <= 11) || 
+      (rows >= 20 && rows <= 21 && columns >=7 && columns <= 11) ||
       (rows >= 20 && rows <= 21 && columns >=18 && columns <= 22) ||
       (rows >= 5 && rows <=6 && (columns == 1 || columns == 2))||
       (rows >= 5 && rows <= 6 && (columns == 27 || columns == 28))||
       (rows >= 2 && rows <= 3 && columns >= 2 && columns <= 11)||
       (rows >= 2 && rows <= 3 && columns >= 18 && columns <= 27)||
-      (rows >= 4 && rows <= 6 && columns >= 7 && columns <= 10) || 
+      (rows >= 4 && rows <= 6 && columns >= 7 && columns <= 10) ||
       (rows >=4 && rows <= 6 && columns >= 19 && columns <= 22) ||
       (rows >= 5 && rows <= 6 && columns >= 12 && columns <= 17)||
       (rows >= 2 && rows <= 3 && columns >= 13 && columns <= 16) ||
@@ -230,7 +256,7 @@ numpell = 0;
       (rows >= 5 && rows <= 7 && columns >= 4 && columns <= 5)||
       (rows >= 5 && rows <= 7 && columns >=24 && columns <= 25) ||
       (rows >= 8 && rows <= 9 && columns >=24 && columns <= 27) ||
-      (rows >= 8 && rows <= 9 && columns >=7 && columns <= 11) || 
+      (rows >= 8 && rows <= 9 && columns >=7 && columns <= 11) ||
       (rows >= 8 && rows <= 9 && columns >=18 && columns <= 22) ||
       (rows >= 8 && rows <= 21 && rows != 14 && rows != 15 && columns >=13 && columns <= 16) ||
       (rows >= 11 && rows <= 13 && columns >=2 && columns <= 5)||
@@ -249,15 +275,17 @@ numpell = 0;
       }
     }
   }
-  
+
   lastmove[0] = 0;
   lastmove[1] = 20;
   x = 310;
   y = 450;
-  xg = 300;
-  yg = 300;
-  xpink = 300;
-  ypink = 300;
+  xg = 310;
+  yg = 310;
+    xgreen = 170;
+  ygreen = 570;
+  xpink = 370;
+  ypink = 90;
    for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       pellgrid[rows][columns] = true;
@@ -269,10 +297,13 @@ numpell = 0;
   delay(50);
 }
 void draw() {
-  if (power || pghostdead || ghostdead){
+  System.out.println("X: " + x);
+    System.out.println("Y: " + y);
+  ghostcounter++;
+  if (power || pghostdead || ghostdead || gghostdead){
     delay(70);
   }
-  if (x == 290 && y == 290 && counter > 100){
+  if (x == 210 && y == 210 && counter > 100){
     power = true;
     counter = 0;
   }
@@ -348,29 +379,43 @@ counter++;
       pgcounter++;
       pghostdead = true;
     }
+
+        loseGame();
+    if (ggcounter > 40){
+  ggho.ghostSetup();
+  ggho.ghostmove();
+  gghostdead = false;
+    }else{
+      ggcounter++;
+      gghostdead = true;
+    }
   pac.display();
   pac.move();
   loseGame();
 }
-void keyPressed(){
+/*void keyPressed(){
 if (key == 'w'){
   if (y/20 > 0 && !grid[(y/20)-1][x/20]){
     y-=20;
   }
 }
 if (key == 's'){
+  println(x + " " + y);
   if (y/20 < row-1 && !grid[(y/20)+1][x/20]){
     y+=20;
   }
 }
 if (key == 'a'){
+  println(x + " " + y);
   if (x/20 > 0 && !grid[y/20][(x/20)-1]){
     x-=20;
   }
 }
 if (key == 'd'){
+  println(x + " " + y);
   if (x/20 < col-1 && !grid[y/20][(x/20)+1]){
     x+=20;
   }
 }
 }
+*/

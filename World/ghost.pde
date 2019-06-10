@@ -11,195 +11,225 @@ void ghostmove(){
 
   if (!power){
 
-     int oldx = 0;
-    int oldy = 0;
-
-          if (xg > 570){
+           if (xg > 570){
       for (int i =0; i < 10; i++){
-        delay(3);
+        delay(1);
         xg -= 1;
       }
-      oldx = -10;
-            lastmove[0] = oldx;
-      lastmove[1] = oldy;
     return;
   }
   if (xg < 30){
       for (int i =0; i < 10; i++){
-        delay(3);
+        delay(1);
         xg += 1;
       }
-      oldx = 10;
-            lastmove[0] = oldx;
-      lastmove[1] = oldy;
     return;
   }
   if (yg < 30){
       for (int i =0; i < 10; i++){
-        delay(3);
+        delay(1);
         yg += 1;
       }
-      oldy = 10;
-            lastmove[0] = oldx;
-      lastmove[1] = oldy;
     return;
   }
   if (yg > 570){
       for (int i =0; i < 10; i++){
-        delay(3);
+        delay(1);
         yg -= 1;
       }
-      oldy = -10;
-            lastmove[0] = oldx;
-      lastmove[1] = oldy;
     return;
   }
-        if (x/20 < col-1 && grid[(yg/20)][(xg/20) + 1]){
-          for (int i =0; i < 10; i++){
-            delay(3);
-            xg -= 1;
-          }
-          oldx = -10;
-          lastmove[0] = oldx;
-          lastmove[1] = oldy;
-          return;
-        }
-        if (x/20 > 0 && grid[(yg/20)][(xg/20) - 1]){
-          for (int i =0; i < 10; i++){
-            delay(3);
+
+     Random rand = new Random();
+    int n = rand.nextInt(4);
+
+      if (n == 0){
+
+           //if  going to crash into +X
+        if (!(x/20 < col-1 && grid[(yg/20)][(xg/20) + 1])){
+          for (int i =0; i < 20; i++){
+            delay(1);
             xg += 1;
           }
-          oldx = 10;
-          lastmove[0] = oldx;
-          lastmove[1] = oldy;
           return;
         }
-        if (yg/20 > 0 && grid[(yg/20) - 1][(xg/20)]){
-          for (int i =0; i < 10; i++){
-            delay(3);
+                                             //if crash into +y
+        if (!(yg/20 < row-1 && grid[(yg/20) + 1][(xg/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
             yg += 1;
           }
-          oldy = 10;
-          lastmove[0] = oldx;
-          lastmove[1] = oldy;
-          return;
 
+
+          return;
         }
-        if (yg/20 < row-1 && grid[(yg/20) + 1][(xg/20)]){
-          for (int i =0; i < 10; i++){
-            delay(3);
+
+                      //if crash into -y
+        if (!(yg/20 > 0 && grid[(yg/20) - 1][(xg/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
             yg -= 1;
           }
 
-          oldy = -10;
-          lastmove[0] = oldx;
-          lastmove[1] = oldy;
+          return;
+
+        }
+
+                //if crash into -X
+        if (!(x/20 > 0 && grid[(yg/20)][(xg/20) - 1])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            xg -= 1;
+          }
+
           return;
         }
-    //250!!!!
-  //random movmeent here
-    //continue
 
-    //print out.. tst it
-    if (yg == y){
-     if (xg < (x)){
-      for (int i =0; i < 10; i++){
-        delay(3);
-        xg += 1;
-      }
-      oldx = 10;
-     }
-     else{
-      for (int i =0; i < 10; i++){
-        delay(3);
-        xg-=1;
-      }
-       oldx = -10;
-     }
-    }
-    else if(xg == x){
-     if (yg < (y)){
-      for (int i =0; i < 10; i++){
-        delay(3);
-        yg += 1;
-      }
-      oldy = 10;
-     }
-     else{
-      for (int i =0; i < 10; i++){
-        delay(3);
-        //Swithcd up,, test it out
-        yg -= 1;
-      }
-       oldy = -10;
-       }
-    }
-    else{
 
-//fix oldx and oldy, should be 20 not 4
-  if (Math.random() <  .2){
-    Random rand = new Random();
-    int n = rand.nextInt(4);
-    if (n == 0){
 
-        for (int i =0; i < 10; i++){
-        delay(3);
-        xg -= 1;
+
+      }
+            if (n == 2){
+                      //if crash into -X
+        if (!(x/20 > 0 && grid[(yg/20)][(xg/20) - 1])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            xg -= 1;
+          }
+
+          return;
         }
-        oldx = -10;
-      //switch up the numbrs..
-      /*
-        }*/
-    }
-    if (n == 1){
-       for (int i =0; i < 10; i++){
-        delay(3);
-       yg += 1;
-       }
-       oldy = 10;
-      /*
-        }*/
-    }
-    if (n == 2){
-      for (int i =0; i < 10; i++){
-        delay(3);
-        yg -= 1;
-      }
-      oldy = -10;
-      /*
-        }*/
-    }
-    if (n == 3){
 
-      for (int i =0; i < 10; i++){
-        delay(3);
-      xg += 1;
-      }
-      oldx = 10;
-      /*
-*/
-    }
-  }
-    else{
-       int divx = lastmove[0] / 10;
-       int divy = lastmove[1] / 10;
-        for (int i = 0; i < 10; i++){
-          delay(3);
-          yg += divy;
-          xg += divx;
+                   //if  going to crash into +X
+        if (!(x/20 < col-1 && grid[(yg/20)][(xg/20) + 1])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            xg += 1;
+          }
+          return;
         }
-       //MAKE LASTMOVE!!!!
-       oldx = lastmove[0];
-       oldy = lastmove[1];
-  }
-    }
-      lastmove[0] = oldx;
-      lastmove[1] = oldy;
+
+                                        //if crash into +y
+        if (!(yg/20 < row-1 && grid[(yg/20) + 1][(xg/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            yg += 1;
+          }
+              //if crash into -y
+        if (!(yg/20 > 0 && grid[(yg/20) - 1][(xg/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            yg -= 1;
+          }
+
+          return;
+
+        }
+
+
+          return;
+        }
+
+
       }
+            if (n == 3){
+                              //if crash into +y
+        if (!(yg/20 < row-1 && grid[(yg/20) + 1][(xg/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            yg += 1;
+          }
+
+
+          return;
+        }
+                   //if  going to crash into +X
+        if (!(x/20 < col-1 && grid[(yg/20)][(xg/20) + 1])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            xg += 1;
+          }
+          return;
+        }
+                //if crash into -y
+        if (!(yg/20 > 0 && grid[(yg/20) - 1][(xg/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            yg -= 1;
+          }
+
+          return;
+
+        }
+                      //if crash into -X
+        if (!(x/20 > 0 && grid[(yg/20)][(xg/20) - 1])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            xg -= 1;
+          }
+
+          return;
+        }
+
+
+
+
+
+      }
+            if (n == 1){
+
+                //if crash into -y
+        if (!(yg/20 > 0 && grid[(yg/20) - 1][(xg/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            yg -= 1;
+          }
+
+          return;
+
+        }
+                //if  going to crash into +X
+        if (!(x/20 < col-1 && grid[(yg/20)][(xg/20) + 1])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            xg += 1;
+          }
+          return;
+        }
+
+
+                              //if crash into +y
+        if (!(yg/20 < row-1 && grid[(yg/20) + 1][(xg/20)])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            yg += 1;
+          }
+
+
+          return;
+        }
+                //if crash into -X
+        if (!(x/20 > 0 && grid[(yg/20)][(xg/20) - 1])){
+          for (int i =0; i < 20; i++){
+            delay(1);
+            xg -= 1;
+          }
+
+          return;
+        }
+
+      }
+
+
+
+
+//
+    }
+
   }
   void ghostSetup(){
     if (!power){
-    fill(127,0,0);
+fill(127,0,0);
     }else{
       fill(255,255,255);
     }
