@@ -173,8 +173,8 @@ numpell = 0;
   y = 450;
   xg = 300;
   yg = 300;
-  xpink = 70;
-  ypink = 250;
+  xpink = 300;
+  ypink = 300;
    for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       pellgrid[rows][columns] = true;
@@ -202,22 +202,61 @@ numpell = 0;
   size(600, 600);
   for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
-      //each cell has a 20% chance of being an obstacle
-      if ((rows >= 10 && rows <= 20 && rows != 15 && rows != 16) || (columns >=10 && columns <= 17)  ){
+      if (((rows == 29 || columns == 29 || rows == 0 || columns == 0) && (rows != 14 && rows !=15)) ||
+      (rows >= 23 && rows <=24 && (columns == 1 || columns == 2))||
+      (rows >= 23 && rows <= 24&& (columns == 27 || columns == 28))||
+      (rows >= 26 && rows <= 27 && columns >= 2 && columns <= 11)||
+      (rows >= 26 && rows <= 27 && columns >= 18 && columns <= 27)||
+      (rows >= 23 && rows <= 25 && columns >= 7 && columns <= 10) || 
+      (rows >=23 && rows <= 25 && columns >= 19 && columns <= 22) ||
+      (rows >= 23 && rows <= 24 && columns >= 12 && columns <= 17)||
+      (rows >= 25 && rows <= 27 && columns >= 13 && columns <= 16) ||
+      (rows >= 20 && rows <= 21 && columns >= 2 && columns <=5)||
+      (rows >= 22 && rows <= 24 && columns >= 4 && columns <= 5)||
+      (rows >= 22 && rows <= 24 && columns >=24 && columns <= 25) ||
+      (rows >= 20 && rows <= 21 && columns >=24 && columns <= 27) ||
+      (rows >= 20 && rows <= 21 && columns >=7 && columns <= 11) || 
+      (rows >= 20 && rows <= 21 && columns >=18 && columns <= 22) ||
+      (rows >= 5 && rows <=6 && (columns == 1 || columns == 2))||
+      (rows >= 5 && rows <= 6 && (columns == 27 || columns == 28))||
+      (rows >= 2 && rows <= 3 && columns >= 2 && columns <= 11)||
+      (rows >= 2 && rows <= 3 && columns >= 18 && columns <= 27)||
+      (rows >= 4 && rows <= 6 && columns >= 7 && columns <= 10) || 
+      (rows >=4 && rows <= 6 && columns >= 19 && columns <= 22) ||
+      (rows >= 5 && rows <= 6 && columns >= 12 && columns <= 17)||
+      (rows >= 2 && rows <= 3 && columns >= 13 && columns <= 16) ||
+      (rows >= 8 && rows <=9 && columns >= 2 && columns <=5)||
+      (rows >= 5 && rows <= 7 && columns >= 4 && columns <= 5)||
+      (rows >= 5 && rows <= 7 && columns >=24 && columns <= 25) ||
+      (rows >= 8 && rows <= 9 && columns >=24 && columns <= 27) ||
+      (rows >= 8 && rows <= 9 && columns >=7 && columns <= 11) || 
+      (rows >= 8 && rows <= 9 && columns >=18 && columns <= 22) ||
+      (rows >= 8 && rows <= 21 && rows != 14 && rows != 15 && columns >=13 && columns <= 16) ||
+      (rows >= 11 && rows <= 13 && columns >=2 && columns <= 5)||
+      (rows >= 11 && rows <= 13 && columns >=24 && columns <= 27)||
+      (rows >= 11 && rows <= 13 && columns >=7 && columns <= 11)||
+      (rows >= 11 && rows <= 13 && columns >=18 && columns <= 22) ||
+      (rows >= 16 && rows <= 18 && columns >=2 && columns <= 5)||
+      (rows >= 16 && rows <= 18 && columns >=24 && columns <= 27)||
+      (rows >= 16 && rows <= 18 && columns >=7 && columns <= 11)||
+      (rows >= 16 && rows <= 18 && columns >=18 && columns <= 22)){
+        grid[rows][columns] = true;
+      }
+      else {
         grid[rows][columns] = false;
         numpell++;
       }
-      else grid[rows][columns] = true;
     }
   }
+  
   lastmove[0] = 0;
   lastmove[1] = 20;
-  x = 250;
-  y = 250;
-  xg = 250;
-  yg = 70;
-  xpink = 70;
-  ypink = 250;
+  x = 310;
+  y = 450;
+  xg = 300;
+  yg = 300;
+  xpink = 300;
+  ypink = 300;
    for (int rows = 0; rows < grid.length; rows++) {
     for (int columns = 0; columns < grid[rows].length; columns++) {
       pellgrid[rows][columns] = true;
